@@ -18,4 +18,9 @@ int main() {
 
 	kommando = les();
 
-	while {
+	while (kommando != 'Q') {
+		switch(kommando) {
+			case 'E': eiendomHandling(kommando);	break; 
+			case 'S':			break;
+			case 'K': kundeHandling(kommando);		break;
+		}
