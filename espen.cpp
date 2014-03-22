@@ -102,13 +102,13 @@ void main()
 	ofstream fout(filename);
 	fout <<"Hi there how are you doing!";
 	fcloseall();
-	cout <<"Her er file:"<<filename<<" :)";
+	cout <<"Her er fila   :"<<filename<<" :)";
 
 	ifstream fin(filename);
 	char tmpstr[80];
 	fin.getline(tmpstr,99);
 	fcloseall();
-	cout << endl<<tmpstr;
+	cout << endl<<"Leser fra fila:"<<tmpstr;
 
 	cin >> ch;	
 }
