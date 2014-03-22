@@ -92,12 +92,12 @@ void olag_navn(char* chrpkr,int number, int prot)
 
 inline void lag_navn(char* chrpkr,int number, int prot)
 {
- for (int signs=strlen(chrpkr);number&&signs--;number/=10)chrpkr[signs-prot]=number%10+48;
+ for (int signs=strlen(chrpkr);number&&-1-prot+signs--;number/=10)chrpkr[signs-prot]=number%10+48;
 }
 
 void main()
 {char ch,filename[30]="DATA0000.DTA";
-	lag_navn(filename,133,4); // Adjust filename & protect last 4 chars from change.
+	lag_navn(filename,123,4); // Adjust filename & protect last 4 chars from change.
 
 	ofstream fout(filename);
 	fout <<"Hi there how are you doing!";
