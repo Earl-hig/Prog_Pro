@@ -8,11 +8,13 @@
 class IntrSone : public Num_element {
 	private:
 		int maxpris, minareal, antSov;
-		enum eiendomstype, tilsending, salgstype;
+		eiendomstype type;
+		tilsending sending_valg;
+		salgstype salg_onske;
 
 	public:
 		IntrSone();
-		IntrSone(int n) : Num_element(n);
+		IntrSone(int n); // : Num_element(n);  trengs ikke i deklarasjonen men bare i definasjonen
 		~IntrSone();
 		virtual void display();
 

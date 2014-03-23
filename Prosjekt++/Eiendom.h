@@ -12,7 +12,7 @@ class Eiendom : public Num_element {
 
 	public:
 		Eiendom();
-		Eiendom(int n): Num_element(n);
+		Eiendom(int n); // : Num_element(n); trengs ikke i deklarasjonen men bare i definasjonen
 		~Eiendom();
 		virtual void display();
 

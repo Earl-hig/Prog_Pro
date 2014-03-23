@@ -13,7 +13,7 @@ class Kunde : public Num_element {
 	
 	public:
 		Kunde();
-		Kunde(int n): Num_element(n);
+		Kunde(int n); //: Num_element(n); trengs ikke i deklarasjonen men bare i definasjonen
 		void display();
 
 };

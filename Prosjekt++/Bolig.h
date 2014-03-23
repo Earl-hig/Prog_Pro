@@ -9,7 +9,7 @@
 class Bolig : public Eiendom {
 	private:
 		int bygar, bruar, boareal, antSov;
-		enum salgstype;
+		salgstype salg_onske;
 
 	public:
 		Bolig();
