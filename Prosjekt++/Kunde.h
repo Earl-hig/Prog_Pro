@@ -12,8 +12,9 @@ class Kunde : public Num_element {
 		IntrSone* intrsone;
 	
 	public:
-		Kunde();
-		Kunde(int n); //: Num_element(n); trengs ikke i deklarasjonen men bare i definasjonen
+		Kunde();					   // Constructor
+		~Kunde();					   // Destructor
+		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definasjonen
 		void display();
 
 };

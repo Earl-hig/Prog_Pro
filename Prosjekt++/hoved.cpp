@@ -11,7 +11,7 @@ Kunder kundebase;
 Soner sonebase;
 
 int main() {
-	
+
 	char kommando;
 
 	skrivMeny();
@@ -19,8 +19,21 @@ int main() {
 	kommando = les();
 
 	while (kommando != 'Q') {
-		switch(kommando) {
-			case 'E': eiendomHandling(kommando);	break; 
-			case 'S':			break;
-			case 'K': kundeHandling(kommando);		break;
+		switch (kommando) {
+		case 'E':
+		case 'S':	eiendomHandling(kommando);
+			break;
+		case 'K':	kundeHandling(kommando);
+			break;
+		case 'U':	ukentlig();
+			break;
+		default:	skrivMeny();
+			break;
 		}
+
+		kommando = les();
+	}
+
+	return 0;
+
+}

@@ -1,5 +1,5 @@
 #if !defined(__FUNK_H)
-#define __FUNK_H)
+#define __FUNK_H
 
 //			DEKLARASJON AV FUNKSJONSHEADINGER
 
@@ -21,6 +21,8 @@ void nyKunde();
 void slettKunde(int nr);
 void endreKunde(int nr);
 void ukentlig();
+inline void lag_navn(char* chrpkr, int number, int prot);
+inline void lag_navn(char* chrpkr, int number, int prot, int prot_first);
 
 
 
