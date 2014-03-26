@@ -9,7 +9,7 @@ class Kunde : public Num_element {
 	private:
 		int telefon;
 		char* navn, adresse, mail;
-		IntrSone* intrsone;
+		List* intrsone;
 	
 	public:
 		Kunde();					   // Constructor

@@ -8,7 +8,7 @@
 class Kunder {
 	private:
 		int forste, siste;
-		Kunde* kunde;
+		List* kunde;
 
 	public:
 		Kunder();

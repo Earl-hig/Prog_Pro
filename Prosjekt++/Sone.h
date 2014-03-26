@@ -7,7 +7,7 @@
 class Sone {
 	private:
 		char* beskrivelse;
-		Eiendom* eiendom;
+		List* eiendom;
 
 	public:
 		Sone();
