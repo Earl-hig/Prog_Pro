@@ -1,0 +1,26 @@
+	1. Main m/lesKommando, skrivMeny og omrisset av klassene m/datamedlemmer. 
+	2. Lag funksjonen lagNavn(…). 
+	3. Bestem formatet for ’SONExxx.DTA’ og ’Kxxxxxxx.DTA’. 
+	Lag 2-3 ”dummy” filer av hver av disse, samt ’SISTE.DTA’. 
+
+til 28	
+	4. Les fra/skriv til ’SONExxx.DTA’ og ’SISTE.DTA’ (oppdragsnr). 
+	5. Les fra/skriv til ’Kxxxxxxx.DTA’ og ’SISTE.DTA’ (forstenr og sistenr). 
+
+til 30	
+	6. Implementer kommandoene ’S D’, ’E D’ og ’K D’. 
+
+til 3	
+	7. Implementer kommandoene ’E N’ (vent med data til filen ’Exxxxxxx.DTA’) og ’E S’. 
+	8. Implementer kommandoene ’K N’ (vent med data til filen ’Exxxxxxx.DTA’) og ’K S’. 
+
+til	6
+	9. Lag skrivingen til filen ’Exxxxxxx.DTA’ ved kommandoene ’E N’ og ’K N’. 
+
+til 8 pass på at ting funker bra 	
+	
+til 10
+	10. Implementer kommandoene ’U’. 
+	11. Implementer kommandoene ’E E’ og ’K E’. 
+	
+få alt på plass til den 11
