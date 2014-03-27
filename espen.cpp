@@ -74,20 +74,6 @@ void lag_navn(char* chrpkr,int number,int signs, int prot)
  chrpkr[signs+prot]='\0';
 }
 
-void olag_navn(char* chrpkr,int number, int prot)
-{
- int signs,pos=0;
- signs=strlen(chrpkr);
- prot++;
- signs-=prot;
- while (signs>=pos)
- {
-  if (number) chrpkr[(signs)-pos]=number%10+48;
-  number/=10;
-  pos++;
- }
- chrpkr[signs+prot]='\0';
-}
 //
 
 inline void lag_navn(char* chrpkr,int number, int prot)
