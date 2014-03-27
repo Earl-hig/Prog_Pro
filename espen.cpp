@@ -14,9 +14,9 @@ using namespace std;
 void cnum(int number, int count)
 {
 	if (number/10==0) return;
-	
-		cnum(number/10, count+1);	
-		cout<<number%10<<"="<<count<<" ";	  
+
+		cnum(number/10, count+1);
+		cout<<number%10<<"="<<count<<" ";
 }
 
 
@@ -83,7 +83,7 @@ void olag_navn(char* chrpkr,int number, int prot)
  while (signs>=pos)
  {
   if (number) chrpkr[(signs)-pos]=number%10+48;
-  number/=10;    
+  number/=10;
   pos++;
  }
  chrpkr[signs+prot]='\0';
@@ -105,15 +105,15 @@ void main()
 	cout <<"Her er fila   :"<<filename<<" :)";
 
 	ifstream fin(filename);
-	char tmpstr[80];
+	char tmpstr[99];
 	fin.getline(tmpstr,99);
 	fcloseall();
 	cout << endl<<"Leser fra fila:"<<tmpstr;
 
-	cin >> ch;	
+	cin >> ch;
 }
 
 
-	
+
 
 
