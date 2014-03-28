@@ -10,7 +10,11 @@ using namespace std;
 Kunder kundebase;
 Soner sonebase;
 
+
+
 int main() {
+
+
 
 	char kommando;
 

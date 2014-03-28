@@ -8,5 +8,6 @@ const int MAXPOST = 10000;
 const int MINPOST = 100;
 const int NVNLEN = 60;
 const int STRLEN = 300;
+const char siste_dta [] = "SISTE.DTA";
 
 #endif

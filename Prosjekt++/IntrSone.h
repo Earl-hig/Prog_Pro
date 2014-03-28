@@ -1,9 +1,13 @@
 #if !defined(__INTRSONE_H)
 #define __INTRSONE_H
 
+#include <iostream>
+#include <fstream>
 
 #include "listtool2.h"
 #include "enum.h"
+
+using namespace std;
 
 class IntrSone : public Num_element {
 	private:
@@ -14,6 +18,7 @@ class IntrSone : public Num_element {
 
 	public:
 		IntrSone();
+		IntrSone(ifstream & inn, int i);
 		IntrSone(int n); // : Num_element(n);  trengs ikke i deklarasjonen men bare i definasjonen
 		~IntrSone();
 		virtual void display();

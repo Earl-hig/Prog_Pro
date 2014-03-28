@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstring>
 
 using namespace std;
@@ -8,6 +9,45 @@ using namespace std;
 
 Eiendom::Eiendom() {
 
+}
+
+Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
+	cout << "\nStarter med eindoms biten....";
+	bolig_type = (eiendomstype)type;
+	char* buffer;
+	buffer = new char[STRLEN+1];
+
+	inn >> datoInn >> bruksnr >> saksb >> pris >> tomta;
+	inn.ignore();
+
+	inn.getline(buffer, STRLEN);
+	gateadr = new char [strlen(buffer)+1];
+	strcpy(gateadr, buffer);
+
+	inn.getline(buffer, STRLEN);
+	postadr = new char [strlen(buffer)+1];
+	strcpy(postadr, buffer);
+
+	inn.getline(buffer, STRLEN);
+	eier = new char [strlen(buffer)+1];
+	strcpy(eier, buffer);
+
+	inn.getline(buffer, STRLEN);
+	kommune = new char [strlen(buffer)+1];
+	strcpy(kommune, buffer);
+
+	inn.getline(buffer, STRLEN);
+	beskrivelse = new char [strlen(buffer)+1];
+	strcpy(beskrivelse, buffer);
+
+
+	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
+		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
+		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
+		 << "\nEier: " << eier << "\tKomune: " << kommune
+		 << "\nBeskrivelse: " << beskrivelse;
+
+	delete []buffer;
 }
 
 Eiendom::~Eiendom() {
