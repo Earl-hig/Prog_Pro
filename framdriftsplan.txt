@@ -24,3 +24,6 @@ til 10
 	11. Implementer kommandoene ’E E’ og ’K E’. 
 	
 få alt på plass til den 11
+
+
+Ligger ikke så bra ann her da?
