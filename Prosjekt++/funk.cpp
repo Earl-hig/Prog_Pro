@@ -75,8 +75,5 @@ void olag_navn(char* chrpkr,int number, int prot)
  chrpkr[signs+prot]='\0';
 }
 
-inline void lag_navn(char* chrpkr,int number, int prot)
-{
- for (int signs=strlen(chrpkr)-prot;number&&-1+signs--;number/=10)chrpkr[signs]=number%10+48;
-}// Som under, men prot_first er ikke i bruk, og første tegn i filnavnet er beskyttet som default.
+
 
