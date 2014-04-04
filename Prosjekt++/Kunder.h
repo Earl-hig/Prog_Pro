@@ -11,8 +11,12 @@ class Kunder {
 		Kunde* kunde;
 
 	public:
-		Kunder();
-		~Kunder();
+		Kunder()
+		{
+		};
+		~Kunder()
+		{
+		};
 
 
 };

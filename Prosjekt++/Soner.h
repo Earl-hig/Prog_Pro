@@ -11,8 +11,12 @@ class Soner {
 		Sone* soner[MAXSONE];
 
 	public:
-		Soner();
-		~Soner();
+		Soner()
+		{
+		};
+		~Soner()
+		{
+		};
 
 };
 
