@@ -11,10 +11,14 @@ class Eiendom : public Num_element {
 		enum eiendomstype;
 
 	public:
-		Eiendom();
-		Eiendom(int n): Num_element(n);
-		~Eiendom();
-		virtual void display();
+		Eiendom()
+		{};
+		Eiendom(int n): Num_element(n)
+		{};
+		~Eiendom()
+		{};
+		virtual void display()
+		{};
 
 };
 

@@ -7,9 +7,9 @@
 
 
 
-enum tilsending		{ Ukentlig, Salgsoppgave }
-enum salgstype		{ Salg, Leie, Begge }
-enum eiendomstype	{ Tomt, Enebolig, Rekkehus, Leilighet, Hytte }
+enum tilsending		{ Ukentlig, Salgsoppgave };
+enum salgstype		{ Salg, Leie, Begge };
+enum eiendomstype	{ Tomt, Enebolig, Rekkehus, Leilighet, Hytte };
 
 
 #endif

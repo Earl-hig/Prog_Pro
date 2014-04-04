@@ -7,8 +7,8 @@ using namespace std;
 #include "Soner.h"
 #include "Kunder.h"
 
-Kunder kundebase;
-Soner sonebase;
+//Kunder kundebase;
+//Soner sonebase;
 
 int main() {
 	
@@ -24,3 +24,5 @@ int main() {
 			case 'S':			break;
 			case 'K': kundeHandling(kommando);		break;
 		}
+	}
+}

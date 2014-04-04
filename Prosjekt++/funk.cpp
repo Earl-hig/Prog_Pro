@@ -4,6 +4,17 @@ using namespace std;
 
 #include "const.h"
 
+void skrivMeny()
+{
+};
+
+void eiendomHandling(char k)
+{
+};
+void kundeHandling(char k)
+{
+};
+
 char les() {
 	char ch;
 	cout << "\n\nKommando:  ";   cin >> ch;   cin.ignore();

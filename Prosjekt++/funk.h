@@ -1,5 +1,5 @@
 #if !defined(__FUNK_H)
-#define __FUNK_H)
+#define _FUNK_H
 
 //			DEKLARASJON AV FUNKSJONSHEADINGER
 

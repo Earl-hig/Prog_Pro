@@ -8,13 +8,17 @@
 class IntrSone : public Num_element {
 	private:
 		int maxpris, minareal, antSov;
-		enum eiendomstype, tilsending, salgstype;
+		enum {eiendomstype, tilsending, salgstype};
 
 	public:
-		IntrSone();
-		IntrSone(int n) : Num_element(n);
-		~IntrSone();
-		virtual void display();
+		IntrSone()
+		{};
+		IntrSone(int n) : Num_element(n)
+		{};
+		~IntrSone()
+		{};
+		virtual void display()
+		{};
 
 };
 

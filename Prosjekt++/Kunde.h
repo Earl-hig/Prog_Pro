@@ -12,9 +12,13 @@ class Kunde : public Num_element {
 		IntrSone* intrsone;
 	
 	public:
-		Kunde();
-		Kunde(int n): Num_element(n);
-		void display();
+		Kunde()
+		{};
+		Kunde(int n): Num_element(n)
+		{};
+
+		void display()
+		{};
 
 };
 
