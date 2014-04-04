@@ -31,7 +31,7 @@ Kunder::Kunder() {
 
 	for (int i = forste; i <= siste; i++) {
 		cout << "\nPrøver å lese kunde nr: " << i;
-		lag_navn(kxx, i , 4);
+		lag_navn(kxx, i ,1, 4);
 		cout << '\n' << kxx;
 
 		ifstream inn_data(kxx);
