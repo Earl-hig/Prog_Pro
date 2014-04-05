@@ -19,6 +19,7 @@ class IntrSone : public Num_element {
 	public:
 		IntrSone();
 		IntrSone(ifstream & inn, int i);
+		IntrSone(int sone, int max, int min, int ant, int typ, int valg, int onsk);
 		IntrSone(int n); // : Num_element(n);  trengs ikke i deklarasjonen men bare i definasjonen
 		~IntrSone();
 		virtual void display();

@@ -7,6 +7,7 @@
 char les();
 int les(char t[], const int MIN, const int MAX);
 void les(char t[], char s[], const int LEN);
+void les (char txt[], char * *ptr , const int LEN);
 void eiendomHandling(char k);
 void kundeHandling(char k);
 void skrivMeny();

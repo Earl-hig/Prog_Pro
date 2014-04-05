@@ -12,6 +12,16 @@ IntrSone::IntrSone() {
 
 }
 
+IntrSone::IntrSone(int sone, int max, int min, int ant, int typ, int valg, int onsk) :Num_element(sone) {
+	cout << "\n construktor type alle variabler kjent";
+	maxpris = max;
+	minareal = min;
+	antSov = ant;
+	type = (eiendomstype)typ;
+	salg_onske = (salgstype)onsk;
+	sending_valg = (tilsending)valg;
+}
+
 IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 
 	int enum_temp;

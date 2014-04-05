@@ -6,6 +6,7 @@
 using namespace std;
 
 #include "const.h"
+#include "extern.h"
 
 char les() {
 	char ch;
@@ -27,6 +28,16 @@ void les(char t[], char s[], const int LEN) { // Leser tekst:
 		cout << '\t' << t << ": ";     //  Skriver ledetekst.
 		cin.getline(s, LEN);           //  Leser inn tekst.
   } while (strlen(s) == 0);       //  Sjekker at tekstlengden er ulik 0.
+}
+
+void les (char txt[],char * *ptr , const int LEN) {
+  cout << txt;
+  char * buffer;
+  buffer = new char [LEN+1];
+  cin.getline(buffer, LEN);
+  *ptr = new char [strlen(buffer)+1];
+  strcpy(*ptr, buffer);
+  delete [] buffer;
 }
 
 void skrivMeny() {
@@ -53,7 +64,24 @@ void eiendomHandling(char k) {
 }
 
 void kundeHandling(char k) {
+	char kommando;
+	kommando = les();
 
+	while (kommando != 'Q') {
+		switch (kommando) {
+		case 'D':
+			break;
+		case 'N': kundebase.add_kunde();
+			break;
+		case 'S':	
+			break;
+		case 'E':	
+			break;
+		default:
+			break;
+		}
+		kommando = les();
+	}
 }
 
 void ukentlig(){
