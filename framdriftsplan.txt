@@ -1,4 +1,4 @@
-	1. Main m/lesKommando, skrivMeny og omrisset av klassene m/datamedlemmer. 
+﻿	1. Main m/lesKommando, skrivMeny og omrisset av klassene m/datamedlemmer. 
 	2. Lag funksjonen lagNavn(…). 
 	3. Bestem formatet for ’SONExxx.DTA’ og ’Kxxxxxxx.DTA’. 
 	Lag 2-3 ”dummy” filer av hver av disse, samt ’SISTE.DTA’. 
@@ -26,4 +26,3 @@ til 10
 få alt på plass til den 11
 
 
-Ligger ikke så bra ann her da?
