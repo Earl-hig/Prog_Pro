@@ -13,7 +13,7 @@ Eiendom::Eiendom() {
 }
 
 Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
-	cout << "\nStarter med eiendoms biten....";
+	//cout << "\nStarter med eiendoms biten....";
 	bolig_type = (eiendomstype)type;
 	char* buffer;
 	buffer = new char[STRLEN+1];
@@ -41,14 +41,18 @@ Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	beskrivelse = new char [strlen(buffer)+1];
 	strcpy(beskrivelse, buffer);
 
+	display();
+	delete []buffer;
+	return;
 
+	cout <<"MUHAHAHAH KJORES IKKE";
 	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
 		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
 		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
 		 << "\nEier: " << eier << "\tKomune: " << kommune
 		 << "\nBeskrivelse: " << beskrivelse;
 
-	delete []buffer;
+	
 }
 
 Eiendom::~Eiendom() {
@@ -56,6 +60,7 @@ Eiendom::~Eiendom() {
 }
 
 void Eiendom::display() {
+	cout << "\n*** EIENDOM  ***";
 	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
 		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
 		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
@@ -63,8 +68,8 @@ void Eiendom::display() {
 		 << "\nBeskrivelse: " << beskrivelse;
 }
 
-void Eiendom::display_eiendommer () {
-	char tmpstr[STRLEN+1];
+void Eiendom::display_eiendommer () {//tull?
+	//char tmpstr[STRLEN+1];
 	int tmpint;
 	
 	cout << "\n*** Viser eiendommer ***";

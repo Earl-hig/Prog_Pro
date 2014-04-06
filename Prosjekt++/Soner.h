@@ -28,11 +28,7 @@ class Soner {
 		};
 
 		int kommando(char k)
-
 		{
-
-
-
 	char kommando;
 
 	cout << "\nSonebase";

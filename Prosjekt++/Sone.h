@@ -20,6 +20,7 @@ class Sone {
 		int display()
 		{
 			cout <<"Viser sone:";
+			//eiendom->display_list();
 			
 			return 0;
 		}

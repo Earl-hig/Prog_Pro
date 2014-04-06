@@ -20,7 +20,7 @@ class Kunde : public Num_element {
 		Kunde();					   // Constructor
 		Kunde(ifstream & inn, int i);  // fra fil
 		~Kunde();					   // Destructor
-		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definasjonen
+		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definisjonen
 		void display();
 
 };
