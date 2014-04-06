@@ -30,7 +30,7 @@ IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 
 	cout << "\nInne i les fra fil construkt";
 	inn >> maxpris >> minareal >> antSov;
-	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " << minareal << "\tSoverom: " << antSov;
+	
 
 	inn >> enum_temp;
 	sending_valg = (tilsending)enum_temp;
@@ -41,7 +41,9 @@ IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 	inn >> enum_temp;
 	type = (eiendomstype)enum_temp;
 
-	cout << "\nSending valg: " << sending_valg << "\tSalgs ønske: " << salg_onske << "\tType bolig:" << type;
+
+	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " << minareal << "\tSoverom: " << antSov;
+	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " << salg_onske << "\tType bolig:" << type;
 
 	
 }
@@ -51,7 +53,8 @@ IntrSone::~IntrSone() {
 }
 
 void IntrSone::display() {
-
+	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " << minareal << "\tSoverom: " << antSov;
+	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " << salg_onske << "\tType bolig:" << type;
 }
 
 // 0 = ingen interesse, 1 = ukentlig innteresse, 2 = salgsopgave

@@ -71,14 +71,9 @@ void Kunder::display_kunder () {// Denne haveet på feil sted..
 	int tmpint;
 	Kunde * kunde_temp;
 	cout << "\n*** Viser kunder ***";
-	//les("\nSkriv inn ett ordrenummer eller postnummer:",tmpstr,STRLEN);
-	//tmpint=atoi(tmpstr);
-	tmpint=les("\nSkriv inn ett ordrenummer eller postnummer:",1,9999);
-	if (tmpint<1000) cout <<"Søker på ordrenummer "<<tmpint;
-	else cout<<"Søker på postnummer "<<tmpint;
-
-
-	//kunde_temp = new Kunde(++siste);
+	tmpint=les("\nSkriv inn ett kundenr:",1,9999);
+	kunde->display_element(tmpint);
+	//kunde_temp = 
 	//kunde -> add(kunde_temp);
 	// delete kunde_temp;
 }

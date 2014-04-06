@@ -106,6 +106,9 @@ Kunde::~Kunde() {
 
 void Kunde::display() {
 	cout << "Viser en kundepost:";
+		cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\tAdresse: " << adresse << "\nMail:" << mail;
+		cout << "\nAntall interesser:" << intrsone->no_of_elements();
+		intrsone->display_list();
 
 }
 
