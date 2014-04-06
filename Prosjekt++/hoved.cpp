@@ -24,8 +24,9 @@ int main() {
 
 	while (kommando != 'Q') {
 		switch (kommando) {
-		case 'E':
-		case 'S':	eiendomHandling(kommando);
+		case 'E':   sonebase.kommando(kommando);
+			break;
+		case 'S':	sonebase.kommando(kommando);
 			break;
 		case 'K':	kundeHandling(kommando);
 			break;

@@ -17,6 +17,14 @@ class Sone {
 		Sone();
 		Sone(ifstream & inn);
 		~Sone();
+		int display()
+		{
+			cout <<"Viser sone:";
+			
+			return 0;
+		}
+
+		int kommando(char k);//bare tull?
 
 };
 

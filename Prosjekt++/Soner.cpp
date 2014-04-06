@@ -22,7 +22,7 @@ Soner::Soner() {
 
 	for (int i = 1; i < MAXSONE; i ++) {
 		
-		olag_navn(sonexx, i, 4);
+		lag_navn(sonexx, i,1, 4);
 
 		cout << "\nFilnavn: " << sonexx;
 

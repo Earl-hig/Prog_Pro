@@ -7,6 +7,7 @@ using namespace std;
 
 #include "const.h"
 #include "extern.h"
+#include "Sone.h"
 
 char les() {
 	char ch;
@@ -60,16 +61,35 @@ void skrivMeny() {
 }
 
 void eiendomHandling(char k) {
-
-}
-
-void kundeHandling(char k) {
 	char kommando;
 	kommando = les();
 
 	while (kommando != 'Q') {
 		switch (kommando) {
 		case 'D':
+			break;
+		case 'N': 
+			break;
+		case 'S':	
+			break;
+		case 'E':	
+			break;
+		default:
+			break;
+		}
+		kommando = les();
+	}
+
+}
+
+void kundeHandling(char k) {
+	char kommando;
+	cout << "Kundebase";
+	kommando = les();
+
+	
+		switch (kommando) {
+		case 'D':kundebase.display_kunder();
 			break;
 		case 'N': kundebase.add_kunde();
 			break;
@@ -81,7 +101,7 @@ void kundeHandling(char k) {
 			break;
 		}
 		kommando = les();
-	}
+	
 }
 
 void ukentlig(){

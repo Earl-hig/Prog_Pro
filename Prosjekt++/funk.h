@@ -22,7 +22,7 @@ void nyKunde();
 void slettKunde(int nr);
 void endreKunde(int nr);
 void ukentlig();
-void olag_navn(char* chrpkr,int number, int prot);
+//void olag_navn(char* chrpkr,int number, int prot);
 
 
 inline void lag_navn(char* chrpkr,int number, int prot_first, int prot)

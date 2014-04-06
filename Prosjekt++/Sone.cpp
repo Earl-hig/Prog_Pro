@@ -9,6 +9,7 @@ using namespace std;
 #include "listtool2.h"
 #include "Eiendom.h"
 #include "Bolig.h"
+#include "funk.h"
 
 
 Sone::Sone() {
@@ -53,6 +54,8 @@ Sone::Sone(ifstream & inn) {
 	}
 	delete []buffer;
 }
+
+
 
 Sone::~Sone() {
 

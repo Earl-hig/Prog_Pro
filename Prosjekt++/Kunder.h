@@ -15,6 +15,7 @@ class Kunder {
 		Kunder();
 		~Kunder();
 		void add_kunde();
+		void display_kunder();
 };
 
 #endif

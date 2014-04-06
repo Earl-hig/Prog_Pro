@@ -101,5 +101,6 @@ Kunde::~Kunde() {
 }
 
 void Kunde::display() {
+	cout << "Viser en kundepost:";
 
 }
