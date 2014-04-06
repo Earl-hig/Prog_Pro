@@ -21,7 +21,11 @@ class Soner {
 			tmpint=les("Velg sone:",1,MAXSONE-1);
 			//for (int j=0; j<MAXSONE;j++)
 			{
-				soner[tmpint]->display();
+				if (soner[tmpint]==NULL)
+				{
+					cout << "Neinei, denne finnes ikke.";
+				}
+				else soner[tmpint]->display();
 			}
 
 			return 0;

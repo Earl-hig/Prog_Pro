@@ -20,10 +20,7 @@ Bolig::Bolig(ifstream & inn, int type, int i) :Eiendom(inn, type, i) {
 
 	salg_onske = (salgstype)enum_temp;
 	display();
-	return;
-
-	cout << "\nByggareal: " << bygar << "\tBrutto areal: " << bruar << "\tBoareal: " << boareal
-		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske;
+	//return;
 }
 
 Bolig::~Bolig() {
@@ -33,6 +30,6 @@ Bolig::~Bolig() {
 void Bolig::display() {
 	cout << "\n*** BOLIG  ***";
 	cout << "\nByggareal: " << bygar << "\tBrutto areal: " << bruar << "\tBoareal: " << boareal
-		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske;
+		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske<<endl;
 
 }
