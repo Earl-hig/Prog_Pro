@@ -23,9 +23,9 @@ class Eiendom : public Num_element {
 		virtual void display();
 		void display_e();
 		int getpnr()
-		{
-			return postadresse2int(postadr);}
-			//return atoi(postadr[0])*1000+atoi(postadr[1])*100+atoi(postadr[2])*10+atoi[postadr[3];}
+		{return postadresse2int(postadr);}
+		int getordrenr()	
+		{return 0;}
 
 
 		int return_dato();

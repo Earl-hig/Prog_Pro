@@ -36,12 +36,14 @@ class Soner {
 		{
 
 			int tmpint,postnr;
+			bool ok=false;
 			cout<<"Eiendom Display";
 			//tmpint=les("Velg sone:",1,MAXSONE-1);
 
-						cout<<"Eiendom Display";
-			//tmpint=les("Velg sone:",1,MAXSONE-1);
-		    postnr=les("Postnr:",1000,9999);
+						
+		    postnr=les("Postnr eller oppdragsnr:",1000,999999);
+
+
 			for (int j=0; j<MAXSONE;j++)
 			{
 				if (soner[j]==NULL)
@@ -52,12 +54,13 @@ class Soner {
 				{
 					//cout << "Display some";
 					soner[j]->display_some(postnr);
+					ok=true;
 				}
-
+				
 				// her trengs en filterfunksjon som gjør
 				// at kun visse oppdragsnr og postnr vises
 			}
-
+			if (!ok) cout << "\nSoeket fant ingen poster.";
 			return 0;
 		};
 
