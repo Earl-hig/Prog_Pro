@@ -20,7 +20,7 @@ int les(char t[], const int MIN, const int MAX) { // Leser tall:
 	do {
 		cout << '\t' << t << " (" << MIN << '-' << MAX << "): ";
 		cin >> n; cin.ignore();
-	} while (n < MIN || n > MAX);
+	} while (n <= MIN || n >= MAX);
 	return n;
 }
 
@@ -124,4 +124,16 @@ void olag_navn(char* chrpkr,int number, int prot)
 }
 
 
+int postadresse2int(char* chrpkr)
+{
+	int j=0;
+	int tmpint=0;
+	while (chrpkr[j]>=48&&chrpkr[j]<58 )
+	{
+		tmpint*=10;
+		tmpint+=chrpkr[j]-48;
+		j++;
+	}
+	return tmpint;
+}
 

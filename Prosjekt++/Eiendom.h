@@ -3,6 +3,7 @@
 
 #include "listtool2.h"
 #include "enum.h"
+#include "funk.h"
 
 #include <iostream>
 #include <fstream>
@@ -23,7 +24,7 @@ class Eiendom : public Num_element {
 		void display_e();
 		int getpnr()
 		{
-			return 0;}
+			return postadresse2int(postadr);}
 			//return atoi(postadr[0])*1000+atoi(postadr[1])*100+atoi(postadr[2])*10+atoi[postadr[3];}
 
 

@@ -37,7 +37,7 @@ class Soner {
 
 			int tmpint;
 			cout<<"Eiendom Display";
-			tmpint=les("Velg sone:",1,MAXSONE-1);
+			//tmpint=les("Velg sone:",1,MAXSONE-1);
 
 						cout<<"Eiendom Display";
 			//tmpint=les("Velg sone:",1,MAXSONE-1);
