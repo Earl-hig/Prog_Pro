@@ -33,8 +33,7 @@ class Soner {
 
 		int display_more(char k)
 		{
-			int tmpint;
-			cout<<"Eiendom Display";
+						cout<<"Eiendom Display";
 			//tmpint=les("Velg sone:",1,MAXSONE-1);
 			for (int j=0; j<MAXSONE;j++)
 			{
@@ -42,7 +41,7 @@ class Soner {
 				{
 					//cout << "Neinei, denne finnes ikke.";
 				}
-				else soner[tmpint]->display();
+				else soner[j]->display();
 				// her trengs en filterfunksjon som gjør
 				// at kun visse oppdragsnr og postnr vises
 			}
