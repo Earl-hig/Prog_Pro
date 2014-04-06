@@ -21,6 +21,11 @@ class Eiendom : public Num_element {
 		~Eiendom();
 		virtual void display();
 		void display_e();
+		int getpnr()
+		{
+			return 0;}
+			//return atoi(postadr[0])*1000+atoi(postadr[1])*100+atoi(postadr[2])*10+atoi[postadr[3];}
+
 
 		int return_dato();
 		int return_bruksnr();

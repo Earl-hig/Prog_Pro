@@ -47,7 +47,12 @@ class Soner {
 				{
 					//cout << "Neinei, denne finnes ikke.";
 				}
-				else soner[j]->display();
+				else 
+				{
+					//cout << "Display some";
+					soner[j]->display_some();
+				}
+
 				// her trengs en filterfunksjon som gjør
 				// at kun visse oppdragsnr og postnr vises
 			}

@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Eiendom.h"
-
+#include "funk.h"
 using namespace std;
 
 class Sone {
@@ -25,6 +25,27 @@ class Sone {
 			
 			return 0;
 		}
+
+		int display_some()
+		{int tmpint,postnr;
+
+		  
+		   Eiendom * tmpeiendom;
+			//cout <<"\nViser utvalgt sone:";
+		    postnr=les("Postnr:",1000,9999);
+			tmpint=eiendom->no_of_elements();
+			//cout <<"Valgt sone har "<<tmpint<<" elementer";
+			//cout <<"Viser element";
+
+			for (int j=1;j<=tmpint;j++)
+			{
+			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
+			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
+			eiendom->add(tmpeiendom);
+			}
+			return 0;
+		}
+
 
 		int kommando(char k);//bare tull?
 

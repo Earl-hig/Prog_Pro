@@ -11,6 +11,20 @@ using namespace std;
 ///////////////////////////////////////////
 
 
+
+int postadresse2int(char* chrpkr)
+{
+	int j=0;
+	int tmpint=0;
+	while (chrpkr[j]>=48&&chrpkr[j]<58 )
+	{
+		tmpint*=10;
+		tmpint+=chrpkr[j]-48;
+		j++;
+	}
+	return tmpint;
+}
+
 void cnum(int number, int count)
 {
 	if (number/10==0) return;
@@ -96,13 +110,17 @@ inline void lag_navn(char* chrpkr,int number, int prot)
 }
 
 void main()
-{char ch,filename[30]="DATA0000.DTA";
+{char ch,filename[30]="DATA0000.DTA",postadresse[10]="1090 HEI";
 	lag_navn(filename,123,4); // Adjust filename & protect last 4 chars from change.
 
 	ofstream fout(filename);
 	fout <<"Hi there how are you doing!";
 	fcloseall();
 	cout <<"Her er fila   :"<<filename<<" :)";
+
+	cout <<postadresse2int(postadresse,4);
+
+
 
 	ifstream fin(filename);
 	char tmpstr[80];
