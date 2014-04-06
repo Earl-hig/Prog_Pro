@@ -66,14 +66,25 @@ void Kunder::add_kunde () {
 	// delete kunde_temp;
 }
 
-void Kunder::display_kunder () {// Denne haveet på feil sted..
+void Kunder::display_kunder () 
+{
 	char tmpstr[STRLEN+1];
 	int tmpint;
 	Kunde * kunde_temp;
 	cout << "\n*** Viser kunder ***";
-	tmpint=les("\nSkriv inn ett kundenr:",1,9999);
-	kunde->display_element(tmpint);
-	//kunde_temp = 
-	//kunde -> add(kunde_temp);
-	// delete kunde_temp;
+	//tmpint=les("\nSkriv inn ett kundenr:",1,9999);
+	les("\nSkriv inn kundenr eller navn",tmpstr,STRLEN);
+	tmpint=postadresse2int(tmpstr);
+	//bruker funksjonen for å trekke nr ut av adresse
+	if (tmpint) 
+		{cout <<"\nSoeker paa kundernr."<<tmpint;
+			kunde->display_element(tmpint);
+	}
+
+	else 
+	{
+		cout <<"Du skrev et navn luring.";
+	}
+
+	
 }
