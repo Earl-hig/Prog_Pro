@@ -68,15 +68,9 @@ void Eiendom::display() {
 		 << "\nBeskrivelse: " << beskrivelse;
 }
 
-void Eiendom::display_eiendommer () {//tull?
-	//char tmpstr[STRLEN+1];
-	int tmpint;
-	
-	cout << "\n*** Viser eiendommer ***";
-	//les("\nSkriv inn ett ordrenummer eller postnummer:",tmpstr,STRLEN);
-	//tmpint=atoi(tmpstr);
-	tmpint=les("\nSkriv inn ett ordrenummer eller postnummer:",1,9999);
-	if (tmpint<1000) cout <<"Søker på ordrenummer "<<tmpint;
-	else cout<<"Søker på postnummer "<<tmpint;
-}
+
+
+
+
+
 

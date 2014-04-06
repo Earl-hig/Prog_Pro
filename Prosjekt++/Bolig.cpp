@@ -28,6 +28,7 @@ Bolig::~Bolig() {
 }
 
 void Bolig::display() {
+	//Eiendom:display();
 	cout << "\n*** BOLIG  ***";
 	cout << "\nByggareal: " << bygar << "\tBrutto areal: " << bruar << "\tBoareal: " << boareal
 		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske<<endl;
