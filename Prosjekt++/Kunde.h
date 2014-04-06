@@ -22,6 +22,7 @@ class Kunde : public Num_element {
 		~Kunde();					   // Destructor
 		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definisjonen
 		void display();
+		void finn_interesser();
 
 };
 

@@ -69,9 +69,8 @@ void Eiendom::display_e() {
 		 << "\nBeskrivelse: " << beskrivelse;
 }
 
+int Eiendom::return_pris(){return pris;}
 
+int Eiendom::return_tomt_areal(){return tomta;}
 
-
-
-
-
+eiendomstype Eiendom::return_type(){return bolig_type;}

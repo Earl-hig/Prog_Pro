@@ -38,3 +38,9 @@ void Bolig::display() {
 		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske<<endl;
 
 }
+
+int Bolig::return_ant_sov() {return antSov;}
+
+int Bolig::return_boareal() {return boareal;}
+
+salgstype Bolig::return_salsg_type() {return salg_onske;}

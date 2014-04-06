@@ -4,6 +4,10 @@
 #include "listtool2.h"
 #include "enum.h"
 
+#include <iostream>
+#include <fstream>
+#include <cstring>
+
 class Eiendom : public Num_element {
 	private:
 		int datoInn, bruksnr, saksb, pris, tomta;
@@ -17,6 +21,13 @@ class Eiendom : public Num_element {
 		~Eiendom();
 		virtual void display();
 		void display_e();
+
+		int return_dato();
+		int return_bruksnr();
+		int return_saksb();
+		int return_pris();
+		int return_tomt_areal();
+		eiendomstype return_type();
 
 };
 

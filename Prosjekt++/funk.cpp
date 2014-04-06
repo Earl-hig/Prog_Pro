@@ -89,7 +89,7 @@ void kundeHandling(char k) {
 
 	
 		switch (kommando) {
-		case 'D':kundebase.display_kunder();
+		case 'D': kundebase.display_kunder();
 			break;
 		case 'N': kundebase.add_kunde();
 			break;

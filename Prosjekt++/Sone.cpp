@@ -61,3 +61,6 @@ Sone::~Sone() {
 
 }
 
+List* Sone::return_eindom_list() {
+	return eiendom;
+}

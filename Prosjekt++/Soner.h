@@ -14,6 +14,7 @@ class Soner {
 	public:
 		Soner();
 		~Soner();
+		Sone* return_sone_nr(int nr);
 
 		int display(char k)
 		{
@@ -35,7 +36,7 @@ class Soner {
 		{
 			int tmpint;
 			cout<<"Eiendom Display";
-			//tmpint=les("Velg sone:",1,MAXSONE-1);
+			tmpint=les("Velg sone:",1,MAXSONE-1);
 			for (int j=0; j<MAXSONE;j++)
 			{
 				if (soner[j]==NULL)
@@ -105,7 +106,6 @@ class Soner {
 	return 0;
 
 };
-
 
 
 };

@@ -17,6 +17,7 @@ class Sone {
 		Sone();
 		Sone(ifstream & inn);
 		~Sone();
+		List* return_eindom_list();
 		int display()
 		{
 			cout <<"Viser sone:";

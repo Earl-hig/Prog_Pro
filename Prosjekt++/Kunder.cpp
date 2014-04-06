@@ -61,7 +61,8 @@ Kunder::~Kunder() {
 void Kunder::add_kunde () {
 	Kunde * kunde_temp;
 	kunde_temp = new Kunde(++siste);
-	kunde -> add(kunde_temp);
+	kunde_temp -> finn_interesser();
+	kunde -> add(kunde_temp);	
 	// delete kunde_temp;
 }
 

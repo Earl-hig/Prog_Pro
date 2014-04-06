@@ -23,7 +23,8 @@ class IntrSone : public Num_element {
 		IntrSone(int n); // : Num_element(n);  trengs ikke i deklarasjonen men bare i definasjonen
 		~IntrSone();
 		virtual void display();
-
+		int samlign(Element* boligen);
+		int return_nr();
 };
 
 #endif

@@ -20,6 +20,9 @@ class Bolig : public Eiendom {
 		~Bolig();
 		virtual void display();
 		//virtual void display_b();
+		salgstype return_salsg_type();
+		int return_ant_sov();
+		int return_boareal();
 		
 };
 

@@ -7,6 +7,7 @@ using namespace std;
 #include "Soner.h"
 #include "const.h"
 #include "funk.h"
+#include "Sone.h"
 
 
 Soner::Soner() {
@@ -45,4 +46,14 @@ Soner::Soner() {
 
 Soner::~Soner() {
 
+}
+
+Sone* Soner::return_sone_nr(int nr) {
+	if (nr < 1 || 100 < nr) {
+		return NULL;
+	}
+
+	Sone* return_ptr = soner[nr];
+
+	return return_ptr;
 }

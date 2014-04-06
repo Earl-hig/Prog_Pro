@@ -6,6 +6,9 @@
 #include "const.h"
 #include "listtool2.h"
 #include "funk.h"
+#include "extern.h"
+#include "Sone.h"
+#include "Eiendom.h"
 
 using namespace std;
 
@@ -22,7 +25,7 @@ Kunde::Kunde(int nr) : Num_element(nr) {
 	intrsone = new List (Sorted);
 
 
-	telefon = les("\nSkriv inn telefon nr: ", 100000, 999999);
+	telefon = les("\nSkriv inn telefon nr: ", 10000000, 99999999);
 	les ("\nSkriv in navnnet: ", &navn, NVNLEN);
 	les ("\nSkriv in epost adr: ", &mail, STRLEN);
 	les ("\nSkriv in gate adressen din: ", &adresse, STRLEN);
@@ -90,17 +93,67 @@ Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 		cout << "\nLeser inn int_sone:" << j;
 		// delete intrsone_tmp
 	}
-
 	cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\tAdresse: " << adresse << "\nMail:" << mail << "\tAnt_soner: " << ant_int_sone;
-
 }
 
 
 Kunde::~Kunde() {
-	
+	delete []navn;
+	delete []adresse;
+	delete []mail;
+	delete intrsone;
 }
 
 void Kunde::display() {
 	cout << "Viser en kundepost:";
 
+}
+
+void Kunde::finn_interesser() {
+	cout << "\n\nNaa begyner vi aa lette etter det du er intresert i!";
+
+	IntrSone* intresert_temp;
+	Sone* sone_temp;
+	List* eindoms_liste = new List(Sorted);
+	Element* til_samenlign;
+
+	for (int i = 1; i <= intrsone -> no_of_elements(); i++) {
+		intresert_temp = (IntrSone*)intrsone -> remove_no(i);
+
+		cout << "\nSone nr: " << intresert_temp -> return_nr();
+
+		sone_temp = sonebase.return_sone_nr(intresert_temp -> return_nr());
+
+		if (sone_temp) {
+			cout << '\t' << '\'' << "aapner sonen" << '\'';
+			eindoms_liste = sone_temp -> return_eindom_list();
+			cout << '\n' << eindoms_liste -> no_of_elements() << " eindomer vi skal se paa...";
+
+			for (int j = 1; j <= eindoms_liste -> no_of_elements(); j++) {
+				til_samenlign = eindoms_liste -> remove_no(j);
+
+				if ((intresert_temp -> samlign(til_samenlign)) == 2) {
+					cout << "\nSkal skrive interesen til fil kommer senere";
+					/*
+					Skriving til spesefik fil kommer senere
+
+					//*/
+				}
+
+				else {
+					cout << "\nInteresen matchet ikke";
+				}
+
+				eindoms_liste -> add(til_samenlign);
+			}
+		}
+
+		else {
+			cout << "\tSonen finnes ikke enda...";
+		}
+		
+		intrsone -> add(intresert_temp);
+	}
+	// delete intresert_temp;
+	// delete eindoms_liste;
 }
