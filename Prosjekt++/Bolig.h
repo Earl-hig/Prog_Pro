@@ -19,6 +19,8 @@ class Bolig : public Eiendom {
 		Bolig(ifstream & inn, int type, int i);
 		~Bolig();
 		virtual void display();
+		//virtual void display_b();
+		
 };
 
 #endif

@@ -46,11 +46,7 @@ Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	return;
 
 	cout <<"MUHAHAHAH KJORES IKKE";
-	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
-		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
-		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
-		 << "\nEier: " << eier << "\tKomune: " << kommune
-		 << "\nBeskrivelse: " << beskrivelse;
+	
 
 	
 }
@@ -60,6 +56,15 @@ Eiendom::~Eiendom() {
 }
 
 void Eiendom::display() {
+	cout << "\n*** EIENDOM  ***";
+	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
+		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
+		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
+		 << "\nEier: " << eier << "\tKomune: " << kommune
+		 << "\nBeskrivelse: " << beskrivelse;
+}
+
+void Eiendom::display_e() {
 	cout << "\n*** EIENDOM  ***";
 	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
 		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
