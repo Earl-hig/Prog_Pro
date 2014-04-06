@@ -26,13 +26,13 @@ class Sone {
 			return 0;
 		}
 
-		int display_some()
-		{int tmpint,postnr;
+		int display_some(int postnr)
+		{int tmpint;
 
 		  
 		   Eiendom * tmpeiendom;
 			//cout <<"\nViser utvalgt sone:";
-		    postnr=les("Postnr:",1000,9999);
+		    
 			tmpint=eiendom->no_of_elements();
 			//cout <<"Valgt sone har "<<tmpint<<" elementer";
 			//cout <<"Viser element";

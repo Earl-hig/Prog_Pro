@@ -35,12 +35,13 @@ class Soner {
 		int display_more(char k)
 		{
 
-			int tmpint;
+			int tmpint,postnr;
 			cout<<"Eiendom Display";
 			//tmpint=les("Velg sone:",1,MAXSONE-1);
 
 						cout<<"Eiendom Display";
 			//tmpint=les("Velg sone:",1,MAXSONE-1);
+		    postnr=les("Postnr:",1000,9999);
 			for (int j=0; j<MAXSONE;j++)
 			{
 				if (soner[j]==NULL)
@@ -50,7 +51,7 @@ class Soner {
 				else 
 				{
 					//cout << "Display some";
-					soner[j]->display_some();
+					soner[j]->display_some(postnr);
 				}
 
 				// her trengs en filterfunksjon som gjør
