@@ -100,7 +100,7 @@ void kundeHandling(char k) {
 		default:
 			break;
 		}
-		kommando = les();
+		
 	
 }
 

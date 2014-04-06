@@ -28,7 +28,7 @@ int main() {
 			break;
 		case 'S':	sonebase.kommando(kommando);
 			break;
-		case 'K':	kundeHandling(kommando);
+		case 'K':	kundebase.kundeHandling(kommando);
 			break;
 		case 'U':	ukentlig();
 			break;
