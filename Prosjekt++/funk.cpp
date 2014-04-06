@@ -20,7 +20,7 @@ int les(char t[], const int MIN, const int MAX) { // Leser tall:
 	do {
 		cout << '\t' << t << " (" << MIN << '-' << MAX << "): ";
 		cin >> n; cin.ignore();
-	} while (n <= MIN || n >= MAX);
+	} while (n < MIN || n > MAX);
 	return n;
 }
 
