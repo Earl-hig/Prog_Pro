@@ -55,13 +55,9 @@ Eiendom::~Eiendom() {
 
 }
 
-void Eiendom::display() {
-	cout << "\n*** EIENDOM  ***";
-	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
-		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
-		 << "\nAreal: " << tomta << "\tGate: " << gateadr << "\tPostadr: " << postadr
-		 << "\nEier: " << eier << "\tKomune: " << kommune
-		 << "\nBeskrivelse: " << beskrivelse;
+void Eiendom::display() {//fordi denne kalles og overloades av samme funksjon
+	display_e();
+	return;
 }
 
 void Eiendom::display_e() {

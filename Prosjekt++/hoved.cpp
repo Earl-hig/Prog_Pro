@@ -24,7 +24,7 @@ int main() {
 
 	while (kommando != 'Q') {
 		switch (kommando) {
-		case 'E':   sonebase.kommando(kommando);
+		case 'E':   sonebase.kommando_e(kommando);
 			break;
 		case 'S':	sonebase.kommando(kommando);
 			break;
