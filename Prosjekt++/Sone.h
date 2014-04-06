@@ -52,20 +52,20 @@ class Sone {
 		    
 			tmpint=eiendom->no_of_elements();
 			cout <<"Valgt sone har "<<tmpint<<" elementer";
-			
-
-			for (int j=1;j<=tmpint;j++)
-			{
-				if (postnr>9999)
+			if (postnr>9999)
 				{
 					eiendom->display_element(postnr);
 				}
-				else
-				{
+			else
+			for (int j=1;j<=tmpint;j++)
+			{
+				
+				
+				
 			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
 			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
 			eiendom->add(tmpeiendom);
-				}
+				
 			}
 			return 0;
 		}
