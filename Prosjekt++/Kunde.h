@@ -23,6 +23,8 @@ class Kunde : public Num_element {
 		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definisjonen
 		void display();
 		void finn_interesser();
+		char* get_navn()
+		{return navn;};
 
 };
 

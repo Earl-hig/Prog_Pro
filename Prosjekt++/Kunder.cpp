@@ -69,7 +69,8 @@ void Kunder::add_kunde () {
 void Kunder::display_kunder () 
 {
 	char tmpstr[STRLEN+1];
-	int tmpint;
+	int tmpint,tmp;
+	bool ok=false;
 	Kunde * kunde_temp;
 	cout << "\n*** Viser kunder ***";
 	//tmpint=les("\nSkriv inn ett kundenr:",1,9999);
@@ -77,13 +78,30 @@ void Kunder::display_kunder ()
 	tmpint=postadresse2int(tmpstr);
 	//bruker funksjonen for å trekke nr ut av adresse
 	if (tmpint) 
-		{cout <<"\nSoeker paa kundernr."<<tmpint;
-			kunde->display_element(tmpint);
+	{cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
+			ok=kunde->display_element(tmpint);
+			
 	}
 
 	else 
 	{
 		cout <<"Du skrev et navn luring.";
+
+		tmpint=kunde->no_of_elements();
+		cout <<"\nElementer:"<<tmpint<<"\n";
+		for (int j=1;j<=tmpint;j++)
+		{
+			kunde_temp=(Kunde*)kunde->remove_no(j);
+			cout <<endl;
+			
+			if (!strcmp(tmpstr,kunde_temp->get_navn()))
+			{
+			kunde_temp->display();
+			ok=true;
+			}
+			kunde->add(kunde_temp);
+		}
+		if (!ok) cout <<"Feil navn. Dette går ikke ann!";
 	}
 
 	
