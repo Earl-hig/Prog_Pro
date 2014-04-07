@@ -39,6 +39,8 @@ int main() {
 		kommando = les();
 	}
 
+	skrivTilFil();
+
 	return 0;
 
 }

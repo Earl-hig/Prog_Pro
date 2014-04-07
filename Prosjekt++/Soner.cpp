@@ -19,7 +19,7 @@ Soner::Soner() {
 
 	cout << "\nLeser fra " << siste_dta;
 	ifstream inn_siste("SISTE.DTA");
-	inn_siste >> sisteSone;
+	inn_siste >> sisteOppdrag;
 
 	for (int i = 1; i < MAXSONE; i ++) {
 		
@@ -31,12 +31,12 @@ Soner::Soner() {
 
 		if (!inn_data){
 			cout << "\tFant ikke";
-			soner[i] = NULL;
+			sonene[i] = NULL;
 		}
 
 		else {
 			cout << "\tÅpner opp....";
-			soner[i] = new Sone(inn_data);
+			sonene[i] = new Sone(inn_data);
 
 		}
 
@@ -53,7 +53,45 @@ Sone* Soner::return_sone_nr(int nr) {
 		return NULL;
 	}
 
-	Sone* return_ptr = soner[nr];
+	Sone* return_ptr = sonene[nr];
 
 	return return_ptr;
+}
+
+void Soner::skrivTilFil() {
+	char* filnavn;
+
+	filnavn = new char[NVNLEN / 2];
+	strcpy(filnavn, "SONE000.DT2");
+
+	ofstream utfil1("SISTE.DT2");
+
+	utfil1 << sisteOppdrag << '\n';
+
+	for (int i = 1; i <= MAXSONE; i++) {
+		if (sonene[i] != 0) {
+			lag_navn(filnavn, i, 4);
+			ofstream utfil2(filnavn);
+			
+			sonene[i]->skrivTilFil(utfil2);
+		}
+		else cout << "\nIngen soner registrert!";
+	}
+}
+
+bool Soner::finnesSone(int nr) {
+	if (sonene[nr])
+		return true;
+	else
+		return false;
+}
+
+
+void Soner::nyEiendom(int nr) {
+	sisteOppdrag++;
+	sonene[nr]->nyEiendom(sisteOppdrag);
+}
+
+void Soner::nySone(int nr) {
+	sonene[nr]->nySone();
 }

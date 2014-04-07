@@ -25,6 +25,7 @@ class Kunde : public Num_element {
 		void finn_interesser();
 		char* get_navn()
 		{return navn;};
+		void skrivTilFil();
 
 };
 

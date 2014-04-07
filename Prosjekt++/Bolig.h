@@ -16,6 +16,7 @@ class Bolig : public Eiendom {
 
 	public:
 		Bolig();
+		Bolig(int type, int nr);
 		Bolig(ifstream & inn, int type, int i);
 		~Bolig();
 		virtual void display();
@@ -23,7 +24,7 @@ class Bolig : public Eiendom {
 		salgstype return_salsg_type();
 		int return_ant_sov();
 		int return_boareal();
-		
+		void skrivTilFil(ofstream & ut);
 };
 
 #endif

@@ -17,6 +17,9 @@ class Sone {
 		Sone();
 		Sone(ifstream & inn);
 		~Sone();
+		void skrivTilFil(ofstream & ut);
+		void nyEiendom(int oppdnr);
+		void nySone();
 		List* return_eindom_list();
 		int display()
 		{

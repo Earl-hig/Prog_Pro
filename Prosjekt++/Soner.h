@@ -8,13 +8,18 @@
 
 class Soner {
 	private:
-		int sisteSone;
-		Sone* soner[MAXSONE];
+		int sisteOppdrag;
+		Sone* sonene[MAXSONE];
 
 	public:
 		Soner();
 		~Soner();
 		Sone* return_sone_nr(int nr);
+		void skrivTilFil();
+		bool finnesSone(int nr);
+		void nyEiendom(int nr);
+		void nySone(int nr);
+
 
 		int display(char k)
 		{
@@ -22,11 +27,11 @@ class Soner {
 			tmpint=les("Velg sone:",1,MAXSONE-1);
 			//for (int j=0; j<MAXSONE;j++)
 			{
-				if (soner[tmpint]==NULL)
+				if (sonene[tmpint]==NULL)
 				{
 					cout << "Neinei, denne finnes ikke.";
 				}
-				else soner[tmpint]->display();
+				else sonene[tmpint]->display();
 			}
 
 			return 0;
@@ -46,14 +51,14 @@ class Soner {
 
 			for (int j=0; j<MAXSONE;j++)
 			{
-				if (soner[j]==NULL)
+				if (sonene[j]==NULL)
 				{
 					//cout << "Neinei, denne finnes ikke.";
 				}
 				else 
 				{
 					//cout << "Display some";
-					soner[j]->display_some(postnr);
+					sonene[j]->display_some(postnr);
 					ok=true;
 				}
 				

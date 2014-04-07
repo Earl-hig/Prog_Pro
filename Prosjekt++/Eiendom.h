@@ -17,9 +17,11 @@ class Eiendom : public Num_element {
 
 	public:
 		Eiendom();
+		Eiendom(int type, int nr);
 		Eiendom(ifstream & inn, int type, int i);
 		Eiendom(int n); // : Num_element(n); trengs ikke i deklarasjonen men bare i definasjonen
 		~Eiendom();
+		void skrivTilFil(ofstream & ut);
 		virtual void display();
 		void display_e();
 		int getpnr()

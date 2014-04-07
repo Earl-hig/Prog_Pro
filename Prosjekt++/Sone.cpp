@@ -61,6 +61,69 @@ Sone::~Sone() {
 
 }
 
+void Sone::skrivTilFil(ofstream & ut) {
+	int i, ant = eiendom->no_of_elements();
+	Eiendom* enptr;
+	Bolig* boptr;
+
+
+	ut << beskrivelse << '\n';
+	ut << ant << '\n';
+
+	for (i = 1; i <= ant; i++) {
+		if (enptr = (Eiendom*)eiendom->remove_no(i)) {
+			enptr->skrivTilFil(ut);
+			eiendom->add(enptr);
+		}
+		else {
+			boptr = (Bolig*)eiendom->remove_no(i);
+			boptr->skrivTilFil(ut);
+			eiendom->add(boptr);
+		}
+	}
+}
+
+void Sone::nyEiendom(int oppdnr) {
+	char valg;
+
+	do {
+		cout << "\nEiendomstype ((T)omt, (E)nebolig, (R)ekkehus, (L)eilighet,"
+			<< "(H)ytte: \n";
+		valg = les();
+
+		if (valg == 'T')
+			eiendom->add(new Eiendom(0, oppdnr));
+
+		else if (valg == 'E')
+			eiendom->add(new Bolig(1, oppdnr));
+
+		else if (valg == 'R')
+			eiendom->add(new Bolig(2, oppdnr));
+
+		else if (valg == 'L')
+			eiendom->add(new Bolig(3, oppdnr));
+
+		else if (valg == 'H')
+			eiendom->add(new Bolig(4, oppdnr));
+
+	} while (valg != 'T' || valg != 'E' || valg != 'R' || valg != 'L' ||
+			 valg != 'H');
+	
+}
+
+
+void Sone::nySone() {
+	char buffer[STRLEN];
+
+	les("\nBeskrivelse av sonen", buffer, STRLEN);
+	beskrivelse = new char[strlen(buffer) + 1];
+	strcpy(beskrivelse, buffer);
+
+	eiendom = new List(Sorted);
+
+}
+
+
 List* Sone::return_eindom_list() {
 	return eiendom;
 }

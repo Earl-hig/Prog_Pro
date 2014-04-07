@@ -25,6 +25,7 @@ class IntrSone : public Num_element {
 		virtual void display();
 		int samlign(Element* boligen);
 		int return_nr();
+		void skrivTilFil(ofstream & ut);
 };
 
 #endif

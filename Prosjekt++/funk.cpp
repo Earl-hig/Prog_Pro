@@ -62,13 +62,14 @@ void skrivMeny() {
 
 void eiendomHandling(char k) {
 	char kommando;
+	int nr = 1; // Tester med sone 1
 	kommando = les();
 
 	while (kommando != 'Q') {
 		switch (kommando) {
 		case 'D':
 			break;
-		case 'N': 
+		case 'N': nyEiendom(nr);
 			break;
 		case 'S':	
 			break;
@@ -137,3 +138,18 @@ int postadresse2int(char* chrpkr)
 	return tmpint;
 }
 
+void nyEiendom(int nr) {
+	if (sonebase.finnesSone(nr)){
+		sonebase.nyEiendom(nr);
+	}
+	else {
+		sonebase.nySone(nr);
+		sonebase.nyEiendom(nr);
+	}
+}
+
+
+void skrivTilFil() {
+	sonebase.skrivTilFil();
+	kundebase.skrivTilFil();
+}

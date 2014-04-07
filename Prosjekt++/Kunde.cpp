@@ -160,3 +160,30 @@ void Kunde::finn_interesser() {
 	// delete intresert_temp;
 	// delete eindoms_liste;
 }
+
+void Kunde::skrivTilFil() {
+	int i, antint = intrsone->no_of_elements();
+	IntrSone* is;
+	char* filnavn;
+
+	filnavn = new char[NVNLEN / 2];
+	strcpy(filnavn, "K0000000.DT2");
+
+	lag_navn(filnavn, number, 4);
+
+	ofstream utfil(filnavn);
+
+	utfil << telefon << '\n';
+	utfil << navn << '\n';
+	utfil << adresse << '\n';
+	utfil << mail << '\n';
+	utfil << antint << '\n';
+
+	cout << "\n\nSKRIVER KUNDE:" << number << " TIL FIL.";
+
+	for (i = 1; i <= antint; i++) {
+		is = (IntrSone*)intrsone->remove_no(i);
+		is->skrivTilFil(utfil);
+		intrsone->add(is);
+	}
+}

@@ -131,3 +131,11 @@ int IntrSone::samlign(Element* boligen) {
 int IntrSone::return_nr() {
 	return number;
 }
+
+void IntrSone::skrivTilFil(ofstream & ut){
+	ut << number << "  " << maxpris << "  ";
+	ut << minareal << "  " << antSov << '\n';
+	ut << sending_valg << '\n';
+	ut << salg_onske << '\n';
+	ut << type << '\n';
+}

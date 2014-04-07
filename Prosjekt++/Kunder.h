@@ -17,6 +17,7 @@ class Kunder {
 		~Kunder();
 		void add_kunde();
 		void display_kunder();
+		void skrivTilFil();
 
 
 		void kundeHandling(char k) 

@@ -106,3 +106,24 @@ void Kunder::display_kunder ()
 
 	
 }
+
+void Kunder::skrivTilFil() {
+	int i = 1;
+	int ant = 0;
+	Kunde* kun;
+
+	ofstream utfil1("SISTE.DT2");
+
+	utfil1 << forste << '\n' << siste << '\n';
+
+	if (!kunde->is_empty()) {
+		ant = kunde->no_of_elements();
+		for (i = 1; i <= ant; i++) {
+			kun = (Kunde*)kunde->remove_no(i);
+			kun->skrivTilFil();
+			kunde->add(kun);
+		}
+	}
+	else cout << "\nLista er tom!";
+}
+
