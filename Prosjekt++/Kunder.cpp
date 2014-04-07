@@ -127,3 +127,23 @@ void Kunder::skrivTilFil() {
 	else cout << "\nLista er tom!";
 }
 
+	void Kunder::kundeHandling(char k) 
+		{
+	     char kommando;
+	     cout << "Kundebase";
+	     kommando = les();
+
+	
+		switch (kommando) {
+		case 'D': display_kunder();
+			break;
+		case 'N': add_kunde();
+			break;
+		case 'S':	
+			break;
+		case 'E':	
+			break;
+		default:
+			break;
+		}
+		}
