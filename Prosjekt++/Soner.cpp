@@ -155,7 +155,7 @@ int Soner::kommando_e(char k)
 		switch (kommando) {
 		case 'D':   display_more(kommando);
 			break;
-		case 'S':	;
+		case 'N':	nyEiendom_v();
 			break;
 		case 'K':	;
 			break;

@@ -23,6 +23,21 @@ class Soner {
 		int display_more(char k);
 		int kommando_e(char k);
 		int kommando(char k);
+		void nyEiendom_v() 
+		{
+			int nr=1;//tester med sone 1
+ 	      if (finnesSone(nr))
+		  {
+		   nyEiendom(nr);
+	      }
+	else 
+	{
+		nySone(nr);
+		nyEiendom(nr);
+	}
+}
+
+
 		};
 
 #endif
