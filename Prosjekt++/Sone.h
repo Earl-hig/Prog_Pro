@@ -21,62 +21,9 @@ class Sone {
 		void nyEiendom(int oppdnr);
 		void nySone();
 		List* return_eindom_list();
-		int display()
-		{
-			cout <<"Viser sone:";
-			eiendom->display_list();
-			
-			return 0;
-		}
-
-		int display_ordrenr(int ordrenr)//ikke i bruk
-		{int tmpint;
-		  
-		   Eiendom * tmpeiendom;
-		    
-			tmpint=eiendom->no_of_elements();
-
-			for (int j=1;j<=tmpint;j++)
-			{
-				eiendom->display_element(ordrenr);
-			//tmpeiendom=(Eiendom*)eiendom->remove_no(j);
-			//if (tmpeiendom->getordrenr()==ordrenr) tmpeiendom->display();
-			//eiendom->add(tmpeiendom);
-			}
-			return 0;
-		}
-
-		int display_some(int postnr)
-		{int tmpint;
-
-		  
-		   Eiendom * tmpeiendom;
+		int display();
+		int display_some(int postnr);
 		
-		    
-			tmpint=eiendom->no_of_elements();
-			cout <<"Valgt sone har "<<tmpint<<" elementer";
-			if (postnr>9999)
-				{
-					eiendom->display_element(postnr);
-				}
-			else
-			for (int j=1;j<=tmpint;j++)
-			{
-				
-				
-				
-			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
-			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
-			eiendom->add(tmpeiendom);
-				
-			}
-			return 0;
-		}
-
-
-		int kommando(char k);//bare tull?
-
 };
-
 
 #endif

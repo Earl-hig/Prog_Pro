@@ -124,6 +124,51 @@ void Sone::nySone() {
 }
 
 
+
+int Sone::display()
+		{
+			cout <<"Viser sone:";
+			eiendom->display_list();
+			
+			return 0;
+		}
+
+
 List* Sone::return_eindom_list() {
 	return eiendom;
 }
+
+
+int Sone::display_some(int postnr)
+		{int tmpint;
+
+		  
+		   Eiendom * tmpeiendom;
+		
+		    
+			tmpint=eiendom->no_of_elements();
+			//cout <<"Valgt sone har "<<tmpint<<" elementer";
+			if (postnr>9999)
+				{
+					eiendom->display_element(postnr);
+				}
+			else
+			for (int j=1;j<=tmpint;j++)
+			{
+				
+				
+				
+			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
+			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
+			eiendom->add(tmpeiendom);
+				
+			}
+			return 0;
+		};
+
+
+
+		
+		
+
+
