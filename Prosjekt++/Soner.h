@@ -25,7 +25,8 @@ class Soner {
 		int kommando(char k);
 		void nyEiendom_v() 
 		{
-			int nr=1;//tester med sone 1
+			int nr;
+			nr=les("Velg sone:",1,100);
  	      if (finnesSone(nr))
 		  {
 		   nyEiendom(nr);

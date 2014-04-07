@@ -60,69 +60,12 @@ void skrivMeny() {
 
 }
 
-void eiendomHandling(char k) {
-	char kommando;
-	int nr = 1; // Tester med sone 1
-	kommando = les();
-
-	while (kommando != 'Q') {
-		switch (kommando) {
-		case 'D':
-			break;
-		case 'N': nyEiendom(nr);
-			break;
-		case 'S':	
-			break;
-		case 'E':	
-			break;
-		default:
-			break;
-		}
-		kommando = les();
-	}
-
-}
-
-void kundeHandling(char k) {
-	char kommando;
-	cout << "Kundebase";
-	kommando = les();
-
-	
-		switch (kommando) {
-		case 'D': kundebase.display_kunder();
-			break;
-		case 'N': kundebase.add_kunde();
-			break;
-		case 'S':	
-			break;
-		case 'E':	
-			break;
-		default:
-			break;
-		}
-		
-	
-}
 
 void ukentlig(){
 
 }
 
-void olag_navn(char* chrpkr,int number, int prot)
-{
- int signs,pos=0;
- signs=strlen(chrpkr);
- prot++;
- signs-=prot;
- while (signs>=pos)
- {
-  if (number) chrpkr[(signs)-pos]=number%10+48;
-  number/=10;    
-  pos++;
- }
- chrpkr[signs+prot]='\0';
-}
+
 
 
 int postadresse2int(char* chrpkr)
