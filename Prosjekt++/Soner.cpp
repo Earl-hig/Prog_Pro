@@ -139,8 +139,6 @@ int Soner::display_more(char k)
 					ok=true;
 				}
 				
-				// her trengs en filterfunksjon som gjør
-				// at kun visse oppdragsnr og postnr vises
 			}
 			if (!ok) cout << "\nSoeket fant ingen poster.";
 			return 0;
