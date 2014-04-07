@@ -87,9 +87,13 @@ void Sone::nyEiendom(int oppdnr) {
 	char valg;
 
 	do {
-		cout << "\nEiendomstype ((T)omt, (E)nebolig, (R)ekkehus, (L)eilighet,"
+		cout << "\nEiendomstype (T)omt, (E)nebolig, (R)ekkehus, (L)eilighet,"
 			<< "(H)ytte: \n";
-		valg = les();
+		valg = les();} 
+	
+	while (valg != 'T' && valg != 'E' && valg != 'R' && valg != 'L' &&
+			 valg != 'H');
+
 
 		if (valg == 'T')
 			eiendom->add(new Eiendom(0, oppdnr));
@@ -106,8 +110,7 @@ void Sone::nyEiendom(int oppdnr) {
 		else if (valg == 'H')
 			eiendom->add(new Bolig(4, oppdnr));
 
-	} while (valg != 'T' || valg != 'E' || valg != 'R' || valg != 'L' ||
-			 valg != 'H');
+	
 	
 }
 

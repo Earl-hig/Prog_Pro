@@ -29,4 +29,7 @@ inline void lag_navn(char* chrpkr,int number, int prot_first, int prot_last)
 // Man kan f.eks sette prot til 4 og prot_first til 7 om man ønsker å beskytte ".DAT" og "FILNAVN".
 
 
+
+
+
 #endif

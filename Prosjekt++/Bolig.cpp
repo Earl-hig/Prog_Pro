@@ -22,11 +22,12 @@ Bolig::Bolig(int type, int nr) : Eiendom(type, nr) {
 
 
 		cout << "\nSalgstype ((S)alg, (L)eie, (B)egge: ";
+		do valg = les();
+		while (!valg == 'S' && !valg == 'L' && !valg == 'B');
 
-		valg = les();
-
-		while (valg == 'S' || valg == 'L' || valg == 'B') {
-			switch (valg) {
+		
+			switch (valg)
+		{
 				case 'S': salg_onske = Salg;
 					break;
 
@@ -35,7 +36,7 @@ Bolig::Bolig(int type, int nr) : Eiendom(type, nr) {
 
 				case 'B': salg_onske = Begge;
 					break;
-			}
+			
 		}
 
 		

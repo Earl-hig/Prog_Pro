@@ -79,12 +79,8 @@ void Soner::skrivTilFil() {
 	}
 }
 
-bool Soner::finnesSone(int nr) {
-	if (sonene[nr])
-		return true;
-	else
-		return false;
-}
+bool Soner::finnesSone(int nr) 
+      {return sonene[nr];}
 
 
 void Soner::nyEiendom(int nr) {
@@ -93,6 +89,7 @@ void Soner::nyEiendom(int nr) {
 }
 
 void Soner::nySone(int nr) {
+	sonene[nr] = new Sone();
 	sonene[nr]->nySone();
 }
 
