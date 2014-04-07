@@ -64,7 +64,6 @@ Sone::~Sone() {
 void Sone::skrivTilFil(ofstream & ut) {
 	int i, ant = eiendom->no_of_elements();
 	Eiendom* enptr;
-	Bolig* boptr;
 
 
 	ut << beskrivelse << '\n';
