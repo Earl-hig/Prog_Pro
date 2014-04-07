@@ -72,6 +72,7 @@ void Bolig::display() {
 
 void Bolig::skrivTilFil(ofstream & ut) {
 
+	Eiendom::skrivTilFil(ut);
 	ut << bygar << "  " << bruar << "  " << boareal << "  " << antSov << '\n';
 	ut << salg_onske << '\n';
 

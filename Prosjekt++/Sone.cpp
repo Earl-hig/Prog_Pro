@@ -71,15 +71,10 @@ void Sone::skrivTilFil(ofstream & ut) {
 	ut << ant << '\n';
 
 	for (i = 1; i <= ant; i++) {
-		if (enptr = (Eiendom*)eiendom->remove_no(i)) {
-			enptr->skrivTilFil(ut);
-			eiendom->add(enptr);
-		}
-		else {
-			boptr = (Bolig*)eiendom->remove_no(i);
-			boptr->skrivTilFil(ut);
-			eiendom->add(boptr);
-		}
+		enptr = (Eiendom*)eiendom->remove_no(i);
+		enptr->skrivTilFil(ut);
+		eiendom->add(enptr);
+	
 	}
 }
 
