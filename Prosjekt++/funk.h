@@ -9,7 +9,6 @@ void les(char t[], char s[], const int LEN);
 void les (char txt[], char * *ptr , const int LEN);
 
 void skrivMeny();
-void nyEiendom(int nr);
 void displayEiendom(int nr);
 void slettEiendom(int nr);
 void endreEiendom(int nr);

@@ -81,15 +81,7 @@ int postadresse2int(char* chrpkr)
 	return tmpint;
 }
 
-void nyEiendom(int nr) {
-	if (sonebase.finnesSone(nr)){
-		sonebase.nyEiendom(nr);
-	}
-	else {
-		sonebase.nySone(nr);
-		sonebase.nyEiendom(nr);
-	}
-}
+
 
 
 void skrivTilFil() {
