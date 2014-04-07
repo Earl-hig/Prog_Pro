@@ -169,7 +169,7 @@ void Kunde::skrivTilFil() {
 	filnavn = new char[NVNLEN / 2];
 	strcpy(filnavn, "K0000000.DT2");
 
-	lag_navn(filnavn, number, 4);
+	lag_navn(filnavn, number,1, 4);
 
 	ofstream utfil(filnavn);
 

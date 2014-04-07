@@ -70,7 +70,7 @@ void Soner::skrivTilFil() {
 
 	for (int i = 1; i <= MAXSONE; i++) {
 		if (sonene[i] != 0) {
-			lag_navn(filnavn, i, 4);
+			lag_navn(filnavn, i,1,4);
 			ofstream utfil2(filnavn);
 			
 			sonene[i]->skrivTilFil(utfil2);
