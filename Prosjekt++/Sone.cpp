@@ -124,7 +124,8 @@ void Sone::nySone() {
 
 int Sone::display()
 		{
-			cout <<"Viser sone:";
+			cout <<"Viser sone med "<< eiendom->no_of_elements()<<" elementer."; 
+
 			eiendom->display_list();
 			
 			return 0;
