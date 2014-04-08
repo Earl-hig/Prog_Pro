@@ -28,10 +28,7 @@ class Kunder {
 	cout << "\n*** Slett kunde ***";
 	tmpint=les("\nSkriv inn ett kundenr:",1,9999);
 	
-
-	
-	if (tmpint) 
-	{cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
+	cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
 			ok=kunde->display_element(tmpint);
 			if (!ok) 
 			{cout << "Feil kundenr."; return;}
@@ -42,12 +39,10 @@ class Kunder {
 	{
 		cout<<"Sletter kunden";
 		kunde->remove_no(tmpint);
-	}
-	else
-	{cout << "Du feiget ut.";}
 
+		// her trengs filskriving
 	}
-	
+	else cout << "Du feiget ut.";
 }
 
 };
