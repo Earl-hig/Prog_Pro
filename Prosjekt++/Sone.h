@@ -23,6 +23,7 @@ class Sone {
 		List* return_eindom_list();
 		int display();
 		int display_some(int postnr);
+		int slett(int oppdragsnr);
 		
 };
 

@@ -23,6 +23,29 @@ class Soner {
 		int display_more(char k);
 		int kommando_e(char k);
 		int kommando(char k);
+
+
+
+		void slettEiendom()
+		{
+			
+			int tmpint;
+			tmpint=les("Velg oppdragsnummer:",10000,999999);
+			for (int j=0; j<MAXSONE;j++)
+			{
+				if (sonene[j]==NULL)
+				{
+					//cout << "Neinei, denne finnes ikke.";
+				}
+				else 
+					sonene[j]->slett(tmpint);
+
+			}
+
+			
+		
+		};
+
 		void nyEiendom_v() 
 		{
 			int nr;

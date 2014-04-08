@@ -154,7 +154,7 @@ int Soner::kommando_e(char k)
 			break;
 		case 'N':	nyEiendom_v();
 			break;
-		case 'K':	;
+		case 'S':	slettEiendom();
 			break;
 		case 'U':	;
 			break;

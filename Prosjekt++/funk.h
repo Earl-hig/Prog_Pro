@@ -10,7 +10,7 @@ void les (char txt[], char * *ptr , const int LEN);
 
 void skrivMeny();
 void displayEiendom(int nr);
-void slettEiendom(int nr);
+
 void endreEiendom(int nr);
 void displaySone(int nr);
 void displayKunde(int nr);

@@ -164,6 +164,24 @@ int Sone::display_some(int postnr)
 		};
 
 
+int Sone::slett(int oppdragsnr)
+		{int tmpint;
+ 
+		   Eiendom * tmpeiendom;
+				    
+			tmpint=eiendom->no_of_elements();
+			cout <<"Valgt sone har "<<tmpint<<" elementer";
+		
+			eiendom->remove(oppdragsnr);
+			
+			//tmpeiendom=(Eiendom*)eiendom->remove(oppdragsnr);
+			
+			//tmpeiendom->display();
+			//eiendom->add(tmpeiendom);
+			return 0;
+		};
+
+
 
 		
 		
