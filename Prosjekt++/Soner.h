@@ -16,6 +16,7 @@ class Soner {
 		~Soner();
 		Sone* return_sone_nr(int nr);
 		void skrivTilFil();
+		void skrivTilEnFil(int i);
 		bool finnesSone(int nr);
 		void nyEiendom(int nr);
 		void nySone(int nr);
@@ -38,10 +39,15 @@ class Soner {
 					//cout << "Neinei, denne finnes ikke.";
 				}
 				else 
-					sonene[j]->slett(tmpint);
+					if (sonene[j]->slett(tmpint))skrivTilEnFil(j);
+
+
+
 
 			}
 
+			skrivTilFil();
+			// skriver alle soner til fil, mulig det er litt overkill;
 			
 		
 		};

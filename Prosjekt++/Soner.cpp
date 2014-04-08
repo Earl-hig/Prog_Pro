@@ -79,6 +79,28 @@ void Soner::skrivTilFil() {
 	}
 }
 
+void Soner::skrivTilEnFil(int i) {
+	char* filnavn;
+
+	filnavn = new char[NVNLEN / 2];
+	strcpy(filnavn, "SONE000.DT2");
+
+		
+		//if (sonene[i] != 0) 
+		{
+			lag_navn(filnavn, i,1,4);
+			ofstream utfil2(filnavn);
+			
+			sonene[i]->skrivTilFil(utfil2);
+		}
+		//else cout << "\nIngen soner registrert!";
+	
+}
+
+
+
+
+
 bool Soner::finnesSone(int nr) 
       {return sonene[nr];}
 

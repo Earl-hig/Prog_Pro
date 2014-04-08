@@ -170,15 +170,12 @@ int Sone::slett(int oppdragsnr)
 		   Eiendom * tmpeiendom;
 				    
 			tmpint=eiendom->no_of_elements();
-			cout <<"Valgt sone har "<<tmpint<<" elementer";
+			cout <<"\nValgt sone har "<<tmpint<<" elementer";
 		
-			eiendom->remove(oppdragsnr);
+			tmpeiendom=(Eiendom*)eiendom->remove(oppdragsnr);
 			
-			//tmpeiendom=(Eiendom*)eiendom->remove(oppdragsnr);
 			
-			//tmpeiendom->display();
-			//eiendom->add(tmpeiendom);
-			return 0;
+			return int(tmpeiendom);
 		};
 
 
