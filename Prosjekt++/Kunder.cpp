@@ -139,7 +139,7 @@ void Kunder::skrivTilFil() {
 			break;
 		case 'N': add_kunde();
 			break;
-		case 'S':	
+		case 'S': slett_kunde();	
 			break;
 		case 'E':	
 			break;
