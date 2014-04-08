@@ -9,15 +9,15 @@ void les(char t[], char s[], const int LEN);
 void les (char txt[], char * *ptr , const int LEN);
 
 void skrivMeny();
-void displayEiendom(int nr);
+//void displayEiendom(int nr);
 
-void endreEiendom(int nr);
-void displaySone(int nr);
-void displayKunde(int nr);
-void displayKunde(char* nvn);
-void nyKunde();
-void slettKunde(int nr);
-void endreKunde(int nr);
+//void endreEiendom(int nr);
+//void displaySone(int nr);
+//void displayKunde(int nr);
+//void displayKunde(char* nvn);
+//void nyKunde();
+//void slettKunde(int nr);
+//void endreKunde(int nr);
 void ukentlig();
 int postadresse2int(char* chrpkr);
 void skrivTilFil();
