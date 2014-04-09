@@ -17,9 +17,12 @@ char les() {
 
 int les(char t[], const int MIN, const int MAX) { // Leser tall:
 	int n;
+	char tmpstr[STRLEN];
 	do {
 		cout << '\t' << t << " (" << MIN << '-' << MAX << "): ";
-		cin >> n; cin.ignore();
+		cin >> tmpstr; 
+		n=postadresse2int(tmpstr);
+		cin.ignore();
 	} while (n < MIN || n > MAX);
 	return n;
 }
