@@ -26,6 +26,7 @@ class Kunde : public Num_element {
 		char* get_navn()
 		{return navn;};
 		void skrivTilFil();
+		void slettFil();
 
 };
 

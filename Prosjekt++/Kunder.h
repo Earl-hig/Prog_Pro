@@ -38,8 +38,8 @@ class Kunder {
 	if (tmpint==tmp)
 	{
 		cout<<"Sletter kunden";
-		kunde->remove_no(tmpint);
-
+		kunde_temp=(Kunde*)kunde->remove_no(tmpint);
+		kunde_temp->slettFil();
 		// her trengs filskriving
 	}
 	else cout << "Du feiget ut.";

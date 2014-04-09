@@ -9,6 +9,7 @@
 #include "extern.h"
 #include "Sone.h"
 #include "Eiendom.h"
+#include "stdio.h"
 
 using namespace std;
 
@@ -186,4 +187,22 @@ void Kunde::skrivTilFil() {
 		is->skrivTilFil(utfil);
 		intrsone->add(is);
 	}
+}
+
+void Kunde::slettFil() {
+	//int i, antint = intrsone->no_of_elements();
+	//IntrSone* is;
+	char* filnavn;
+
+	filnavn = new char[NVNLEN / 2];
+	strcpy(filnavn, "K0000000.DT2");
+
+	lag_navn(filnavn, number,1, 4);
+
+	//fstream utfil(filnavn);
+	remove(filnavn);
+
+	cout << "\n\nSLETTER KUNDE NR." << number << " FRA FIL.";
+
+	
 }
