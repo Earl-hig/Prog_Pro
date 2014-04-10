@@ -30,45 +30,9 @@ class Soner {
 
 
 
-		void slettEiendom()
-		{
-			
-			int tmpint;
-			tmpint=les("Velg oppdragsnummer:",10000,999999);
-			for (int j=0; j<MAXSONE;j++)
-			{
-				if (sonene[j]==NULL)
-				{
-					//cout << "Neinei, denne finnes ikke.";
-				}
-				else 
-					if (sonene[j]->slett(tmpint))skrivTilEnFil(j);
+		void slettEiendom();
 
-				
-
-
-			}
-
-			//skrivTilFil();
-			// skriver alle soner til fil, mulig det er litt overkill;
-			
-		
-		};
-
-		void nyEiendom_v() 
-		{
-			int nr;
-			nr=les("Velg sone:",1,100);
- 	      if (finnesSone(nr))
-		  {
-		   nyEiendom(nr);
-	      }
-	else 
-	{
-		nySone(nr);
-		nyEiendom(nr);
-	}
-}
+		void nyEiendom_v() ;
 
 
 		};
