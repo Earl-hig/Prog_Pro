@@ -186,7 +186,6 @@ void Kunder::skrivTilFil() {
 		  ofstream tmputfil(siste_dta);
 		  tmputfil << sonebase.getsisteOppdrag() << '\n';
 	      tmputfil << forste<<endl<<siste<<endl;
-		  fcloseall();
 		}
 
 	}

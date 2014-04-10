@@ -24,6 +24,8 @@ class Sone {
 		int display();
 		int display_some(int postnr);
 		int slett(int oppdragsnr);
+		bool harOppdnr(int nr);
+		void endreEiendom(int oppdnr);
 		
 };
 

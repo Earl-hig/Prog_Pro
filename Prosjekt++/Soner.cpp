@@ -178,7 +178,7 @@ int Soner::kommando_e(char k)
 			break;
 		case 'S':	slettEiendom();
 			break;
-		case 'U':	;
+		case 'E':	endreEiendom();
 			break;
 		default:	;
 			break;
@@ -218,3 +218,14 @@ int Soner::kommando(char k)
 	return 0;
 
 };
+
+void Soner::endreEiendom(){ // Endrer alt om en eiendom
+	int oppdnr = les("\nOppdragsnummer", MAXPOST, sisteOppdrag);
+	for (int i = 1; i <= MAXSONE; i++){
+		if (sonene[i]->harOppdnr(oppdnr)){
+			sonene[i]->endreEiendom(oppdnr);
+		}
+	
+	}
+
+}

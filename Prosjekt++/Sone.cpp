@@ -179,7 +179,32 @@ int Sone::slett(int oppdragsnr)
 			return int(tmpeiendom);
 		};
 
+bool Sone::harOppdnr(int nr){
+	int i, ant = eiendom->no_of_elements();
+	Eiendom* enptr;
+	
+	for (i = 1; i <= ant; i++){
+		enptr = (Eiendom*)eiendom->remove_no(i);
+		if (enptr->harOppdnr(nr))
+			return true;
+		eiendom->add(enptr);
+	}
+	return false;
+}
 
+void Sone::endreEiendom(int oppdnr) {
+	Bolig* boptr;
+	Eiendom* enptr;
+
+	if (boptr = (Bolig*)eiendom->remove(oppdnr)){
+		delete boptr;
+		nyEiendom(oppdnr);
+	}
+	else {
+		enptr = (Eiendom*)eiendom->destroy(oppdnr);
+		nyEiendom(oppdnr);
+	}
+}
 
 		
 		

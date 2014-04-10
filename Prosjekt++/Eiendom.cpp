@@ -122,3 +122,9 @@ void Eiendom::skrivTilFil(ofstream & ut) {
 	ut << beskrivelse << '\n';
 
 }
+
+bool Eiendom::harOppdnr(int nr){
+	if (nr == number)
+		return true;
+	else return false;
+}

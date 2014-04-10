@@ -24,6 +24,7 @@ class Eiendom : public Num_element {
 		virtual void skrivTilFil(ofstream & ut);
 		virtual void display();
 		void display_e();
+		bool harOppdnr(int nr);
 		int getpnr()
 		{return postadresse2int(postadr);}
 		int getordrenr()	
