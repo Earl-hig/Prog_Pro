@@ -24,6 +24,8 @@ class Soner {
 		int display_more(char k);
 		int kommando_e(char k);
 		int kommando(char k);
+		int getsisteOppdrag()
+		{return sisteOppdrag;}
 
 
 

@@ -6,6 +6,7 @@
 #include "const.h"
 #include "funk.h"
 #include "listtool2.h"
+#include "extern.h"
 
 using namespace std;
 
@@ -147,3 +148,49 @@ void Kunder::skrivTilFil() {
 			break;
 		}
 		}
+
+
+	void Kunder::slett_kunde () 
+{
+	char tmpstr[STRLEN+1];
+	int tmpint,tmp;
+	
+	bool ok=false;
+	Kunde * kunde_temp;
+	cout << "\n*** Slett kunde ***";
+	tmpint=les("\nSkriv inn ett kundenr:",1,9999);
+	
+	cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
+			ok=kunde->display_element(tmpint);
+			if (!ok) 
+			{cout << "Feil kundenr."; return;}
+
+	cout << "\nSkriv kundenr en gang til for aa bekrefte sletting:";
+	tmp=les("\nSkriv inn ett kundenr:",1,9999);
+	if (tmpint==tmp)
+	{
+		cout<<"Sletter kunden";
+		if (kunde->no_of_elements()<2) 
+		{cout <<"Forbudt å slette siste kunde";
+		return;}
+		kunde_temp=(Kunde*)kunde->remove_no(tmpint);
+		kunde_temp->slettFil();
+		// her trengs filskriving
+
+		
+
+	
+	
+	char* filnavn;
+	filnavn = new char[NVNLEN / 2];
+	ofstream tmputfil("SISTE.DT2");
+
+	tmputfil << sonebase.getsisteOppdrag() << '\n';
+	tmputfil << forste<<endl<<siste<<endl;
+
+	fcloseall();
+
+
+	}
+	else cout << "Du feiget ut.";
+}
