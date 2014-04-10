@@ -27,9 +27,10 @@ Kunde::Kunde(int nr) : Num_element(nr) {
 
 
 	telefon = les("\nSkriv inn telefon nr: ", 10000000, 99999999);
-	les ("\nSkriv in navnnet: ", &navn, NVNLEN);
-	les ("\nSkriv in epost adr: ", &mail, STRLEN);
-	les ("\nSkriv in gate adressen din: ", &adresse, STRLEN);
+	les ("\nSkriv inn navnnet: ", &navn, NVNLEN);
+	les ("\nSkriv inn epost adr: ", &mail, STRLEN);
+	les ("\nSkriv inn gate adressen din: ", &gate, STRLEN);
+	les ("\nSkriv inn postnr/sted", &adresse, STRLEN);
 
 	cout << "\nLeser nå inn info for intrsone";
 
@@ -72,6 +73,10 @@ Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 	strcpy (navn, buffer);
 
 	inn.getline(buffer,STRLEN);
+	gate = new char [strlen(buffer) + 1];
+	strcpy (gate, buffer);
+
+	inn.getline(buffer,STRLEN);
 	adresse = new char [strlen(buffer) + 1];
 	strcpy (adresse, buffer);
 
@@ -94,12 +99,14 @@ Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 		cout << "\nLeser inn int_sone:" << j;
 		// delete intrsone_tmp
 	}
-	cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\tAdresse: " << adresse << "\nMail:" << mail << "\tAnt_soner: " << ant_int_sone;
+	cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\nGate:"<<gate
+		<<"\tAdresse: " << adresse << "\nMail:" << mail << "\tAnt_soner: " << ant_int_sone;
 }
 
 
 Kunde::~Kunde() {
 	delete []navn;
+	delete []gate;
 	delete []adresse;
 	delete []mail;
 	delete intrsone;
@@ -107,7 +114,8 @@ Kunde::~Kunde() {
 
 void Kunde::display() {
 	cout << "Viser en kundepost:";
-		cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\tAdresse: " << adresse << "\nMail:" << mail;
+		cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\nGate:"<<gate
+		<<"\tAdresse: " << adresse << "\nMail:" << mail ;
 		cout << "\nAntall interesser:" << intrsone->no_of_elements();
 		intrsone->display_list();
 
@@ -176,6 +184,7 @@ void Kunde::skrivTilFil() {
 
 	utfil << telefon << '\n';
 	utfil << navn << '\n';
+	utfil << gate << '\n';
 	utfil << adresse << '\n';
 	utfil << mail << '\n';
 	utfil << antint << '\n';

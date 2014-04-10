@@ -13,7 +13,7 @@ using namespace std;
 class Kunde : public Num_element {
 	private:
 		int telefon;
-		char* navn, * adresse, * mail;
+		char* navn, * gate,* adresse, * mail;
 		List* intrsone;
 	
 	public:
