@@ -43,12 +43,12 @@ class Soner {
 				else 
 					if (sonene[j]->slett(tmpint))skrivTilEnFil(j);
 
-
+				
 
 
 			}
 
-			skrivTilFil();
+			//skrivTilFil();
 			// skriver alle soner til fil, mulig det er litt overkill;
 			
 		
