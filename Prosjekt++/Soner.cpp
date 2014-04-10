@@ -221,9 +221,16 @@ int Soner::kommando(char k)
 
 void Soner::endreEiendom(){ // Endrer alt om en eiendom
 	int oppdnr = les("\nOppdragsnummer", MAXPOST, sisteOppdrag);
-	for (int i = 1; i <= MAXSONE; i++){
-		if (sonene[i]->harOppdnr(oppdnr)){
-			sonene[i]->endreEiendom(oppdnr);
+	for (int i = 1; i <= MAXSONE; i++)
+	
+	{if (sonene[i]==NULL)
+				{
+					//cout << "Neinei, denne finnes ikke.";
+				}
+				else 
+		if (sonene[i]->slett(oppdnr)){
+			sonene[i]->nyEiendom(oppdnr);
+			
 		}
 	
 	}
