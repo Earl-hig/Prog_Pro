@@ -24,7 +24,9 @@ class Kunde : public Num_element {
 		void display();
 		void finn_interesser();
 		char* get_navn()
-		{return navn;};
+		{return navn;}
+		int get_number()
+		{return number;}
 		void skrivTilFil();
 		void slettFil();
 

@@ -173,23 +173,24 @@ void Kunder::skrivTilFil() {
 		if (kunde->no_of_elements()<2) 
 		{cout <<"Forbudt å slette siste kunde";
 		return;}
-		kunde_temp=(Kunde*)kunde->remove_no(tmpint);
+		kunde_temp=(Kunde*)kunde->remove(tmpint);
 		kunde_temp->slettFil();
 		// her trengs filskriving
 
-		
+		if (tmpint==forste)
+		{
+		cout << "Du slettet foerste kunde";
+		kunde_temp=(Kunde*)kunde->remove_no(1);
+		forste=kunde_temp->get_number();
+		kunde->add(kunde_temp);
 
-	
-	
-	char* filnavn;
-	filnavn = new char[NVNLEN / 2];
 	ofstream tmputfil("SISTE.DT2");
 
 	tmputfil << sonebase.getsisteOppdrag() << '\n';
 	tmputfil << forste<<endl<<siste<<endl;
 
 	fcloseall();
-
+		}
 
 	}
 	else cout << "Du feiget ut.";
