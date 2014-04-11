@@ -279,6 +279,7 @@ void Kunde::slettFil() {
 
 	cout << "\n\nSLETTER KUNDE NR." << number << " FRA FIL.";
 
+<<<<<<< HEAD
 	delete []filnavn;
 }
 
@@ -312,4 +313,28 @@ void Kunde::er_intresert_eindom(Eiendom* eiendomen, int sone_nr) {
 		cout << "\nFant ikke sonen";
 
 	// delete temp_intrsone;
+=======
+	
+}
+
+void Kunde::endreIntrsone() {
+	IntrSone* isptr;
+	int sone;
+
+	cout << "\nDu er interessert i:\n";
+	intrsone->display_list();
+
+	sone = les("\nHvilke(n) sone(r) vil du endre dine interesser i? (0 for å avslutte)", 0, 100);
+
+	while (sone != 0) {
+		if (intrsone->in_list(sone)) {
+			isptr = (IntrSone*)intrsone->destroy(sone);
+			intrsone->add(new IntrSone(sone));
+		}
+		else
+			sone = les("\nHvilke(n) sone(r) vil du "
+			"endre dine interesser i? (0 for å avslutte)", 0, 100);
+
+	}
+>>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
 }

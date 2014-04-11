@@ -31,8 +31,13 @@ class Kunde : public Num_element {
 		{return number;}
 		void skrivTilFil();
 		void slettFil();
+<<<<<<< HEAD
 		void skriv_til_e_dta(int opp_nr);
 		void er_intresert_eindom(Eiendom* eiendomen, int sone_nr);
+=======
+		void endreIntrsone();
+
+>>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
 };
 
 #endif

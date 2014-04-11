@@ -144,7 +144,7 @@ void Kunder::kundeHandling(char k)
 			break;
 		case 'S': slett_kunde();	
 			break;
-		case 'E':	
+		case 'E': endreKunde();
 			break;
 		default:
 			break;
@@ -194,6 +194,7 @@ void Kunder::slett_kunde ()
 	else cout << "Du feiget ut.";
 }
 
+<<<<<<< HEAD
 void Kunder::finn_interesser_for_eindom(Eiendom* eiendomen, int sone_nr) {
 	cout << "\n\nVi skal finne om noen har lyst på denne nye eindomen";
 
@@ -224,3 +225,32 @@ void Kunder::finn_ukentlig_interessee() {
 		}
 		// delete temp_kunde;
 }
+=======
+	void Kunder::endreKunde(){				// Funksjon som endrer kunde
+		Kunde* kptr;
+		char valg;
+		int knr = les("\nKundenummer", forste, siste);
+
+		if (!kunde->is_empty()) {			// Hvis lista ikke er tom
+			if (kptr = (Kunde*)kunde->remove(knr)) { // Hvis den klarte å remove
+				cout << "\nHva vil du endre på?";
+				cout << "\n(K)unden eller en (I)nteressesone: ";
+				valg = les();
+				
+				switch (valg) {
+					case 'K': delete kptr; 
+							  kunde->add(new Kunde(knr));
+							  break;
+					case 'I': kptr->endreIntrsone(); 
+							  kunde->add(kptr);
+							  break;
+					default:  cout << "\nUgyldig kommando!";
+				}
+			}
+			else							// Klarte ikke å remove
+				cout << "\nFinner ingen kunde med nummer " << knr;
+		}
+		else								// Lista er tom
+			cout << "\nLista er tom!";
+	}
+>>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
