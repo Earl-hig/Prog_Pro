@@ -203,16 +203,15 @@ void Kunder::skrivTilFil() {
 				cout << "\n(K)unden eller en (I)nteressesone: ";
 				valg = les();
 				
-				if (valg = 'K') {
-					delete kptr;
-					kunde->add(new Kunde(knr));
+				switch (valg) {
+					case 'K': delete kptr; 
+							  kunde->add(new Kunde(knr));
+							  break;
+					case 'I': kptr->endreIntrsone(); 
+							  kunde->add(kptr);
+							  break;
+					default:  cout << "\nUgyldig kommando!";
 				}
-				else if (valg = 'I') {
-					kptr->endreIntrsone();
-					kunde->add(kptr);
-				}
-				else
-					cout << "\nUgyldig kommando!";
 			}
 			else							// Klarte ikke å remove
 				cout << "\nFinner ingen kunde med nummer " << knr;
