@@ -8,7 +8,7 @@ using namespace std;
 #include "const.h"
 #include "funk.h"
 #include "Sone.h"
-
+#include "extern.h"
 
 Soner::Soner() {
 	cout << "\nHei jeg er soner";
@@ -108,6 +108,17 @@ bool Soner::finnesSone(int nr)
 void Soner::nyEiendom(int nr) {
 	sisteOppdrag++;
 	sonene[nr]->nyEiendom(sisteOppdrag);
+	finn_intereser(sisteOppdrag, nr);
+}
+
+void Soner::finn_intereser(int opp_nr, int sone_nr) {
+	List* temp_list_s = sonene[sone_nr] -> return_eindom_list();
+	Eiendom* temp_eindom = (Eiendom*)temp_list_s -> remove(opp_nr);
+
+	kundebase.finn_interesser_for_eindom(temp_eindom, sone_nr);
+
+	temp_list_s -> add(temp_eindom);
+	// delete temp_eindom;
 }
 
 void Soner::nySone(int nr) {

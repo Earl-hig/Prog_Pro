@@ -30,7 +30,7 @@ class Eiendom : public Num_element {
 		int getordrenr()	
 		{return 0;}
 
-
+		int return_opdrag_nr();
 		int return_dato();
 		int return_bruksnr();
 		int return_saksb();
@@ -41,4 +41,3 @@ class Eiendom : public Num_element {
 };
 
 #endif
-

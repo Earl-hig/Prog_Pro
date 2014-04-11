@@ -108,6 +108,8 @@ int Eiendom::return_pris(){return pris;}
 
 int Eiendom::return_tomt_areal(){return tomta;}
 
+int Eiendom::return_opdrag_nr() {return number;}
+
 eiendomstype Eiendom::return_type(){return bolig_type;}
 
 void Eiendom::skrivTilFil(ofstream & ut) {

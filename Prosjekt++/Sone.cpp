@@ -103,9 +103,6 @@ void Sone::nyEiendom(int oppdnr) {
 
 		else if (valg == 'H')
 			eiendom->add(new Bolig(4, oppdnr));
-
-	
-	
 }
 
 

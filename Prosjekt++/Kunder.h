@@ -5,6 +5,7 @@
 #include "Kunde.h"
 #include "listtool2.h"
 #include "funk.h"
+#include "Eiendom.h"
 
 
 class Kunder {
@@ -20,7 +21,8 @@ class Kunder {
 		void skrivTilFil();
 		void kundeHandling(char k);
 		void slett_kunde ();
-
+		void finn_interesser_for_eindom(Eiendom* eindomen, int sone_nr);
+		void finn_ukentlig_interessee();
 };
 
 #endif

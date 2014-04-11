@@ -7,6 +7,7 @@
 #include "funk.h"
 #include "listtool2.h"
 #include "extern.h"
+#include "Eiendom.h"
 
 using namespace std;
 
@@ -128,7 +129,8 @@ void Kunder::skrivTilFil() {
 	else cout << "\nLista er tom!";
 }
 
-	void Kunder::kundeHandling(char k) 
+
+void Kunder::kundeHandling(char k) 
 		{
 	     char kommando;
 	     cout << "Kundebase";
@@ -150,7 +152,7 @@ void Kunder::skrivTilFil() {
 		}
 
 
-	void Kunder::slett_kunde () 
+void Kunder::slett_kunde () 
 {
 	char tmpstr[STRLEN+1];
 	int tmpint,tmp;
@@ -190,4 +192,35 @@ void Kunder::skrivTilFil() {
 
 	}
 	else cout << "Du feiget ut.";
+}
+
+void Kunder::finn_interesser_for_eindom(Eiendom* eiendomen, int sone_nr) {
+	cout << "\n\nVi skal finne om noen har lyst på denne nye eindomen";
+
+	Kunde* temp_kunde;
+
+	for (int i = 1; i <= kunde -> no_of_elements(); i++) {
+		temp_kunde = (Kunde*)kunde -> remove_no(i);
+
+		temp_kunde -> er_intresert_eindom(eiendomen, sone_nr);
+
+		kunde -> add(temp_kunde);
+	}
+
+	// delete temp_kunde;
+}
+
+void Kunder::finn_ukentlig_interessee() {
+		cout << "\nEtt hak dypere";
+		Kunde* temp_kunde;
+
+		for (int i = 1; i <= kunde -> no_of_elements(); i++) {
+			cout << "\nKunde " << i;
+			temp_kunde = (Kunde*)kunde -> remove_no(i);
+
+			temp_kunde -> finn_ukentlig_intersser();
+
+			kunde -> add(temp_kunde);
+		}
+		// delete temp_kunde;
 }

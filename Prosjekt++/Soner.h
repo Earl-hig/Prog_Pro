@@ -28,6 +28,7 @@ class Soner {
 		int getsisteOppdrag()			//Unødvendig siden sisteOppdrag ligger på denne fila
 		{return sisteOppdrag;}
 
+		void finn_intereser(int opp_nr, int sone_nr);
 
 
 		void slettEiendom();

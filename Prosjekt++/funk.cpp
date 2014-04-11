@@ -65,7 +65,8 @@ void skrivMeny() {
 
 
 void ukentlig(){
-
+	cout << "\nDu er nå i komando u delen....";
+	kundebase.finn_ukentlig_interessee();
 }
 
 
