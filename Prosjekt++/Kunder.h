@@ -20,15 +20,10 @@ class Kunder {
 		void display_kunder();
 		void skrivTilFil();
 		void kundeHandling(char k);
-<<<<<<< HEAD
-		void slett_kunde ();
 		void finn_interesser_for_eindom(Eiendom* eindomen, int sone_nr);
 		void finn_ukentlig_interessee();
-=======
 		void slett_kunde();
 		void endreKunde();
-
->>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
 };
 
 #endif

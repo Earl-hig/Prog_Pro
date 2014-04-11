@@ -194,7 +194,6 @@ void Kunder::slett_kunde ()
 	else cout << "Du feiget ut.";
 }
 
-<<<<<<< HEAD
 void Kunder::finn_interesser_for_eindom(Eiendom* eiendomen, int sone_nr) {
 	cout << "\n\nVi skal finne om noen har lyst på denne nye eindomen";
 
@@ -225,8 +224,8 @@ void Kunder::finn_ukentlig_interessee() {
 		}
 		// delete temp_kunde;
 }
-=======
-	void Kunder::endreKunde(){				// Funksjon som endrer kunde
+
+void Kunder::endreKunde(){				// Funksjon som endrer kunde
 		Kunde* kptr;
 		char valg;
 		int knr = les("\nKundenummer", forste, siste);
@@ -252,5 +251,4 @@ void Kunder::finn_ukentlig_interessee() {
 		}
 		else								// Lista er tom
 			cout << "\nLista er tom!";
-	}
->>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
+}

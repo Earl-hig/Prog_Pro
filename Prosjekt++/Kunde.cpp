@@ -211,9 +211,9 @@ void Kunde::finn_ukentlig_intersser() {
 					cout << "\n\n***skal lege til  oppdrag: " << til_samenlign -> return_opdrag_nr() << "***";
 		
 
-					ut_data << "\n**************************************************";
+					ut_data << "\n**************************************************\n";
 					til_samenlign -> skrivTilFil(ut_data);
-					ut_data << "\n**************************************************";
+					ut_data << "**************************************************";
 
 				}
 
@@ -279,7 +279,6 @@ void Kunde::slettFil() {
 
 	cout << "\n\nSLETTER KUNDE NR." << number << " FRA FIL.";
 
-<<<<<<< HEAD
 	delete []filnavn;
 }
 
@@ -313,8 +312,6 @@ void Kunde::er_intresert_eindom(Eiendom* eiendomen, int sone_nr) {
 		cout << "\nFant ikke sonen";
 
 	// delete temp_intrsone;
-=======
-	
 }
 
 void Kunde::endreIntrsone() {
@@ -336,5 +333,4 @@ void Kunde::endreIntrsone() {
 			"endre dine interesser i? (0 for å avslutte)", 0, 100);
 
 	}
->>>>>>> 1dc90aca210012c6fe50749c7c15d681713d8fca
 }

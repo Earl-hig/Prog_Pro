@@ -14,18 +14,6 @@ IntrSone::IntrSone() {
 
 }
 
-IntrSone::IntrSone(int sone) {
-	int max_pris, min_ar, ant, typ, valg, onsk;
-	
-	max_pris = les("\nskriv inn max pris", 1000000, 10000000);
-	min_ar = les("\nSkriv inn min areal", 50, 200);
-	ant = les("\nSkriv in antall soverom", 1, 10);
-	typ = les("\nTomt = 0, Enenebolig = 1, Rekke hus = 2\
-			  			  \nLelighet = 3, hytte = 4", 0, 4);
-	valg = les("\nUkentlig = 0, Salgsoppgave = 1", 0, 1);
-	onsk = les("\nSalg = 0, leie = 1, begge er = 2", 0, 2);
-}
-
 IntrSone::IntrSone(int sone, int max, int min, int ant, int typ, int valg, int onsk) :Num_element(sone) {
 	cout << "\n construktor type alle variabler kjent";
 	maxpris = max;
@@ -58,6 +46,18 @@ IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " << salg_onske << "\tType bolig:" << type;
 
 	
+}
+
+IntrSone::IntrSone(int sone) {
+	int max_pris, min_ar, ant, typ, valg, onsk;
+	
+	max_pris = les("\nskriv inn max pris", 1000000, 10000000);
+	min_ar = les("\nSkriv inn min areal", 50, 200);
+	ant = les("\nSkriv in antall soverom", 1, 10);
+	typ = les("\nTomt = 0, Enenebolig = 1, Rekke hus = 2\
+			  			  \nLelighet = 3, hytte = 4", 0, 4);
+	valg = les("\nUkentlig = 0, Salgsoppgave = 1", 0, 1);
+	onsk = les("\nSalg = 0, leie = 1, begge er = 2", 0, 2);
 }
 
 IntrSone::~IntrSone() {
