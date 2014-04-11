@@ -19,7 +19,8 @@ class Kunder {
 		void display_kunder();
 		void skrivTilFil();
 		void kundeHandling(char k);
-		void slett_kunde ();
+		void slett_kunde();
+		void endreKunde();
 
 };
 

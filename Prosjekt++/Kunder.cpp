@@ -142,7 +142,7 @@ void Kunder::skrivTilFil() {
 			break;
 		case 'S': slett_kunde();	
 			break;
-		case 'E':	
+		case 'E': endreKunde();
 			break;
 		default:
 			break;
@@ -191,3 +191,32 @@ void Kunder::skrivTilFil() {
 	}
 	else cout << "Du feiget ut.";
 }
+
+	void Kunder::endreKunde(){				// Funksjon som endrer kunde
+		Kunde* kptr;
+		char valg;
+		int knr = les("\nKundenummer", forste, siste);
+
+		if (!kunde->is_empty()) {			// Hvis lista ikke er tom
+			if (kptr = (Kunde*)kunde->remove(knr)) { // Hvis den klarte å remove
+				cout << "\nHva vil du endre på?";
+				cout << "\n(K)unden eller en (I)nteressesone: ";
+				valg = les();
+				
+				if (valg = 'K') {
+					delete kptr;
+					kunde->add(new Kunde(knr));
+				}
+				else if (valg = 'I') {
+					kptr->endreIntrsone();
+					kunde->add(kptr);
+				}
+				else
+					cout << "\nUgyldig kommando!";
+			}
+			else							// Klarte ikke å remove
+				cout << "\nFinner ingen kunde med nummer " << knr;
+		}
+		else								// Lista er tom
+			cout << "\nLista er tom!";
+	}

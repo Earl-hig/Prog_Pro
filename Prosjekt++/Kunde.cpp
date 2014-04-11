@@ -215,3 +215,23 @@ void Kunde::slettFil() {
 
 	
 }
+
+void Kunde::endreIntrsone() {
+	IntrSone* isptr;
+	int sone;
+
+	cout << "\nDu er interessert i:\n";
+	intrsone->display_list();
+
+	sone = les("\nHvilke(n) sone(r) vil du endre dine interesser i? (0 for å avslutte)", 0, 100);
+
+	while (sone != 0) {
+		if (intrsone->in_list(sone)) {
+			isptr = (IntrSone*)intrsone->destroy(sone);
+			intrsone->add(new IntrSone(sone));
+		}
+		else
+			cout << "\nIngen interesse registrert i denne sonen!";
+
+	}
+}

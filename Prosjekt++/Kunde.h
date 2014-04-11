@@ -29,6 +29,7 @@ class Kunde : public Num_element {
 		{return number;}
 		void skrivTilFil();
 		void slettFil();
+		void endreIntrsone();
 
 };
 
