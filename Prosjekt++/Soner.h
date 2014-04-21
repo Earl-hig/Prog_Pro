@@ -8,7 +8,7 @@
 
 class Soner {
 	private:
-		int sisteOppdrag;				// Siste Oppdrag.
+		int sisteOppdrag;				
 		Sone* sonene[MAXSONE];
 
 	public:
@@ -25,7 +25,7 @@ class Soner {
 		int kommando_e(char k);
 		int kommando(char k);
 		void endreEiendom();
-		int getsisteOppdrag()			//Unødvendig siden sisteOppdrag ligger på denne fila
+		int getsisteOppdrag()			
 		{return sisteOppdrag;}
 
 		void finn_intereser(int opp_nr, int sone_nr);

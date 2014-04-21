@@ -164,7 +164,7 @@ int Soner::display_more(char k)
 				}
 				else 
 				{
-					//cout << "Display some";
+					
 					sonene[j]->display_some(postnr);
 					ok=true;
 				}
