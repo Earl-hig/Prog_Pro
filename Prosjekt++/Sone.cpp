@@ -144,15 +144,15 @@ int Sone::display_some(int postnr)
 			tmpint=eiendom->no_of_elements();
 			//cout <<"Valgt sone har "<<tmpint<<" elementer";
 			if (postnr>9999)
+			//postnr er ikke et postnr men et ordrenr
 				{
 					eiendom->display_element(postnr);
 				}
 			else
+			//postnr er et korrekt postnr
 			for (int j=1;j<=tmpint;j++)
 			{
-				
-				
-				
+		
 			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
 			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
 			eiendom->add(tmpeiendom);

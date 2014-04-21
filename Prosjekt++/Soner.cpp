@@ -62,9 +62,9 @@ void Soner::skrivTilFil() {
 	char* filnavn;
 
 	filnavn = new char[NVNLEN / 2];
-	strcpy(filnavn, "SONE000.DT2");
+	strcpy(filnavn, "SONE000.DTA");
 
-	ofstream utfil1("SISTE.DT2");
+	ofstream utfil1("SISTE.DTA");
 
 	utfil1 << sisteOppdrag << '\n';
 
@@ -83,7 +83,7 @@ void Soner::skrivTilEnFil(int i) {
 	char* filnavn;
 
 	filnavn = new char[NVNLEN / 2];
-	strcpy(filnavn, "SONE000.DT2");
+	strcpy(filnavn, "SONE000.DTA");
 
 		
 		//if (sonene[i] != 0) 

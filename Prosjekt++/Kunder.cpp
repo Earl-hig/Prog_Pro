@@ -114,7 +114,7 @@ void Kunder::skrivTilFil() {
 	int ant = 0;
 	Kunde* kun;
 
-	ofstream utfil1("SISTE.DT2", ios::app);
+	ofstream utfil1("SISTE.DTA", ios::app);
 
 	utfil1 << forste << '\n' << siste << '\n';
 
