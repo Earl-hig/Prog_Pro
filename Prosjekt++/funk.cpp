@@ -47,7 +47,7 @@ void les (char txt[],char * *ptr , const int LEN) {
 void skrivMeny() {
 
 	cout << "\n\n\t\tMENYVALG:";
-	cout << "\n\n\tFølgende kommandoer er tilgjengelig:";
+	cout << "\n\n\tFoelgende kommandoer er tilgjengelig:";
 	cout << "\n\n\tE D <oppdnr> | <pnr> - Eiendom Display <oppdragsnr> "
 		 << "eller <postnr>";
 	cout << "\n\tE N <sonenr> - Eiendom Ny <sonenummer>";
@@ -65,7 +65,7 @@ void skrivMeny() {
 
 
 void ukentlig(){
-	cout << "\nDu er nå i komando u delen....";
+	cout << "\nDu er naa i komando u delen....";
 	kundebase.finn_ukentlig_interessee();
 }
 

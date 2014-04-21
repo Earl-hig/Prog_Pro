@@ -79,8 +79,6 @@ Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	display();
 	delete []buffer;
 	return;
-
-	cout <<"MUHAHAHAH KJORES IKKE";
 	
 
 	

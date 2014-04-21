@@ -88,10 +88,10 @@ int IntrSone::samlign(Element* boligen) {
 
 
 	if (type == eindom_temp ->return_type()) {
-		cout << "\nvi er på ret spor";
+		cout << "\nVi er paa ret spor";
 
 		if ((eindom_temp ->return_type()) == Tomt) {
-			cout << "\nDene oppdraget er en tomt";
+			cout << "\nDette oppdraget er en tomt";
 
 			if ((eindom_temp ->return_pris()) < maxpris) {
 				cout << "\nPrisen er grei";
@@ -105,7 +105,7 @@ int IntrSone::samlign(Element* boligen) {
 			}
 		}
 		else {
-			cout << "\ndu har med en byg aa gjore";
+//cout << "\ndu har med en bygg aa gjore";
 			bolig_temp = (Bolig*)eindom_temp;
 
 			if (antSov < (bolig_temp -> return_ant_sov())) {

@@ -15,7 +15,7 @@ Bolig::Bolig() {
 Bolig::Bolig(int type, int nr) : Eiendom(type, nr) {
 	char valg;
 
-	bygar = les("\nByggeår", 1900, 2014);
+	bygar = les("\nByggeaar", 1900, 2014);
 	bruar = les("\nBruttoareal", 10, 1000);
 	boareal = les("\nBoareal", 10, bruar);
 	antSov = les("\nAntall soverom", 1, 10);
@@ -52,7 +52,7 @@ Bolig::Bolig(ifstream & inn, int type, int i) :Eiendom(inn, type, i) {
 	salg_onske = (salgstype)enum_temp;
 	cout << "\n*** BOLIG  ***";
 	cout << "\nByggareal: " << bygar << "\tBrutto areal: " << bruar << "\tBoareal: " << boareal
-		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske<<endl;
+		 << "\nAnt soverom: " << antSov << "\tSalg oenske: " << salg_onske<<endl;
 	//return;
 }
 
@@ -66,7 +66,7 @@ void Bolig::display() {
 	display_e();	//Eiendom:display();
 	cout << "\n*** BOLIG  ***";
 	cout << "\nByggareal: " << bygar << "\tBrutto areal: " << bruar << "\tBoareal: " << boareal
-		 << "\nAnt soverom: " << antSov << "\tSalg ønske: " << salg_onske<<endl;
+		 << "\nAnt soverom: " << antSov << "\tSalg oenske: " << salg_onske<<endl;
 
 }
 
