@@ -16,9 +16,9 @@ Sone::Sone() {
 
 }
 
-Sone::Sone(ifstream & inn) {
+Sone::Sone(ifstream & inn) {  // Constructor som leser fra fil:
 	cout << "\nLeser sone fra fil...";
-	eiendom = new List(Sorted);
+	eiendom = new List(Sorted);	// Oppretter ny liste (sortert)
 	int opdrags_nr, ant_eiend, type_eind;
 	char* buffer;
 	buffer = new char[STRLEN+1];
@@ -61,7 +61,7 @@ Sone::~Sone() {
 
 }
 
-void Sone::skrivTilFil(ofstream & ut) {
+void Sone::skrivTilFil(ofstream & ut) { // Skriver Sone til fil
 	int i, ant = eiendom->no_of_elements();
 	Eiendom* enptr;
 
@@ -77,10 +77,10 @@ void Sone::skrivTilFil(ofstream & ut) {
 	}
 }
 
-void Sone::nyEiendom(int oppdnr) {
+void Sone::nyEiendom(int oppdnr) { // Oppretter ny eiendom
 	char valg;
 
-	do {
+	do {						// Leser eiendomstype
 		cout << "\nEiendomstype (T)omt, (E)nebolig, (R)ekkehus, (L)eilighet,"
 			<< "(H)ytte: \n";
 		valg = les();} 
@@ -89,10 +89,10 @@ void Sone::nyEiendom(int oppdnr) {
 			 valg != 'H');
 
 
-		if (valg == 'T')
+		if (valg == 'T')		// Hvis det er en tomt, legges kun eiendom inn
 			eiendom->add(new Eiendom(0, oppdnr));
 
-		else if (valg == 'E')
+		else if (valg == 'E')  // Alle andre tilfeller legges det inn en bolig
 			eiendom->add(new Bolig(1, oppdnr));
 
 		else if (valg == 'R')
@@ -106,20 +106,20 @@ void Sone::nyEiendom(int oppdnr) {
 }
 
 
-void Sone::nySone() {
+void Sone::nySone() {			// Legger inn en ny Sone
 	char buffer[STRLEN];
-
+								// Leser beskrivelse
 	les("\nBeskrivelse av sonen", buffer, STRLEN);
 	beskrivelse = new char[strlen(buffer) + 1];
 	strcpy(beskrivelse, buffer);
 
-	eiendom = new List(Sorted);
+	eiendom = new List(Sorted); // Oppretter ny eiendomsliste
 
 }
 
 
 
-int Sone::display()
+int Sone::display()				// Displayer Sone
 		{
 			cout <<"Viser sone med "<< eiendom->no_of_elements()<<" elementer."; 
 
@@ -175,30 +175,30 @@ int Sone::slett(int oppdragsnr)
 			return int(tmpeiendom);
 		};
 
-bool Sone::harOppdnr(int nr){
+bool Sone::harOppdnr(int nr){   // Returnerer True/False om sonen har oppnr
 	int i, ant = eiendom->no_of_elements();
 	Eiendom* enptr;
 	
-	for (i = 1; i <= ant; i++){
+	for (i = 1; i <= ant; i++){ // Går gjennom lista
 		enptr = (Eiendom*)eiendom->remove_no(i);
-		if (enptr->harOppdnr(nr))
-			return true;
+		if (enptr->harOppdnr(nr)) // Hvis eiendom har gitt oppdragsnummer
+			return true;		  // Returnerer true
 		eiendom->add(enptr);
 	}
-	return false;
+	return false;				  // Returnerer false
 }
 
-void Sone::endreEiendom(int oppdnr) {
+void Sone::endreEiendom(int oppdnr) { // Endrer gitt eiendom
 	Bolig* boptr;
 	Eiendom* enptr;
-
+									   // Hvis det er en bolig
 	if (boptr = (Bolig*)eiendom->remove(oppdnr)){
-		delete boptr;
-		nyEiendom(oppdnr);
+		delete boptr;				   // Sletter bolig
+		nyEiendom(oppdnr);			   // Legger inn på nytt
 	}
-	else {
-		enptr = (Eiendom*)eiendom->destroy(oppdnr);
-		nyEiendom(oppdnr);
+	else {							   // Hvis det er en eiendom
+		enptr = (Eiendom*)eiendom->destroy(oppdnr); // Sletter eiendom
+		nyEiendom(oppdnr);			   // Legger inn på nytt
 	}
 }
 

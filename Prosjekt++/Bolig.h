@@ -9,12 +9,12 @@
 #include "listtool2.h"
 
 
-class Bolig : public Eiendom {
+class Bolig : public Eiendom {			// Private data:
 	private:
 		int bygar, bruar, boareal, antSov;
 		salgstype salg_onske;
 
-	public:
+	public:								// Medlemsfunksjoner:
 		Bolig();
 		Bolig(int type, int nr);
 		Bolig(ifstream & inn, int type, int i);

@@ -6,12 +6,12 @@
 #include "funk.h"
 
 
-class Soner {
+class Soner {						   // Private data:
 	private:
 		int sisteOppdrag;				
 		Sone* sonene[MAXSONE];
 
-	public:
+	public:							   // Medlemsfunksjoner:
 		Soner();
 		~Soner();
 		Sone* return_sone_nr(int nr);

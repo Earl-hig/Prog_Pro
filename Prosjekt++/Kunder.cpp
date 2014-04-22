@@ -16,12 +16,12 @@ using namespace std;
 
 
 
-Kunder::Kunder() {
+Kunder::Kunder() {				// Parameterløs constructor:
 
 	char * kxx;
 	kxx = new char[STRLEN];
 	strcpy (kxx, "K0000000.DTA");
-	kunde = new List(Sorted);
+	kunde = new List(Sorted);	// Oppretter ny liste (sortert)
 
 	cout << "\nHei jeg er kunder";
 
@@ -68,7 +68,7 @@ void Kunder::add_kunde () {
 	// delete kunde_temp;
 }
 
-void Kunder::display_kunder () 
+void Kunder::display_kunder () // Displayer Kunder
 {
 	char tmpstr[STRLEN+1];
 	int tmpint,tmp;
@@ -109,24 +109,24 @@ void Kunder::display_kunder ()
 	
 }
 
-void Kunder::skrivTilFil() {
+void Kunder::skrivTilFil() {	// Skriver kunder til fil:
 	int i = 1;
 	int ant = 0;
 	Kunde* kun;
-
+								// Oppretter filen
 	ofstream utfil1("SISTE.DTA", ios::app);
 
 	utfil1 << forste << '\n' << siste << '\n';
-
-	if (!kunde->is_empty()) {
+	
+	if (!kunde->is_empty()) {	// Hvis lista ikke er tom
 		ant = kunde->no_of_elements();
-		for (i = 1; i <= ant; i++) {
+		for (i = 1; i <= ant; i++) { // Går gjennom lista
 			kun = (Kunde*)kunde->remove_no(i);
-			kun->skrivTilFil();
-			kunde->add(kun);
+			kun->skrivTilFil(); // Ber hver enkelt skrive seg til fil
+			kunde->add(kun);	// Adder tilbake
 		}
 	}
-	else cout << "\nLista er tom!";
+	else cout << "\nLista er tom!"; // Lista er tom
 }
 
 
@@ -231,7 +231,7 @@ void Kunder::endreKunde(){				// Funksjon som endrer kunde
 		int knr = les("\nKundenummer", forste, siste);
 
 		if (!kunde->is_empty()) {			// Hvis lista ikke er tom
-			if (kptr = (Kunde*)kunde->remove(knr)) { // Hvis den klarte å remove
+			if (kptr = (Kunde*)kunde->remove(knr)) {// Hvis den klarte å remove
 				cout << "\nHva vil du endre på?";
 				cout << "\n(K)unden eller en (I)nteressesone: ";
 				valg = les();

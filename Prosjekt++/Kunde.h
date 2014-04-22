@@ -11,17 +11,17 @@
 
 using namespace std;
 
-class Kunde : public Num_element {
+class Kunde : public Num_element {		// Private data:
 	private:
 		int telefon;
 		char* navn, * gate,* adresse, * mail;
 		List* intrsone;
 	
-	public:
+	public:							   // Medlemsfunksjoner:
 		Kunde();					   // Constructor
 		Kunde(ifstream & inn, int i);  // fra fil
 		~Kunde();					   // Destructor
-		Kunde(int nr); //: Num_element(nr); trengs ikke i deklarasjonen men bare i definisjonen
+		Kunde(int nr);
 		void display();
 		void finn_interesser();
 		void finn_ukentlig_intersser();

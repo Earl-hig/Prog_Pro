@@ -9,17 +9,17 @@
 #include <fstream>
 #include <cstring>
 
-class Eiendom : public Num_element {
+class Eiendom : public Num_element {	// Private data:
 	private:
 		int datoInn, bruksnr, saksb, pris, tomta;
 		char* gateadr, * postadr, * eier, * kommune, * beskrivelse;
 		eiendomstype bolig_type;
 
-	public:
+	public:								// Medlemsfunksjoner
 		Eiendom();
 		Eiendom(int type, int nr);
 		Eiendom(ifstream & inn, int type, int i);
-		Eiendom(int n); // : Num_element(n); trengs ikke i deklarasjonen men bare i definasjonen
+		Eiendom(int n); 
 		~Eiendom();
 		virtual void skrivTilFil(ofstream & ut);
 		virtual void display();

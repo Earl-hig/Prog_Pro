@@ -19,13 +19,13 @@ Kunde::Kunde() {
 
 }
 
-Kunde::Kunde(int nr) : Num_element(nr) {
+Kunde::Kunde(int nr) : Num_element(nr) { // Constructor som leser fra bruker:
 	cout << "\n\nLager nå en kunde!!";
 	IntrSone * intrsone_temp;
 	int sone, max_pris, min_ar, ant, typ, valg, onsk;
-	intrsone = new List (Sorted);
+	intrsone = new List (Sorted);	   // Oppretter ny liste (sortert)
 
-
+									   // Leser og legger inn data fra bruker:
 	telefon = les("\nSkriv inn telefon nr: ", 10000000, 99999999);
 	les ("\nSkriv inn navnnet: ", &navn, NVNLEN);
 	les ("\nSkriv inn epost adr: ", &mail, STRLEN);
@@ -44,27 +44,28 @@ Kunde::Kunde(int nr) : Num_element(nr) {
 	onsk = les("\nSalg = 0, leie = 1, begge er = 2", 0, 2);
 
 	do {
-		if (intrsone ->in_list(sone)) {
+		if (intrsone ->in_list(sone)) { // Hvis sonen finnes:
 			cout << "\nSone: " << sone << " finnes allerede.";
 		}
-		else {
-		  intrsone_temp = new IntrSone(sone, max_pris, min_ar, ant, typ, valg, onsk);
+		else {						   // Hvis ikke:
+		  intrsone_temp = new IntrSone(sone, max_pris, 
+						min_ar, ant, typ, valg, onsk);
 		  intrsone -> add (intrsone_temp);
 		}
 		sone = les("\nSkriv inn sone nr 1-100 (0 for aa avslutte)", 0, 100);
-	} while (sone != 0);
+	} while (sone != 0);			  // 0 for å avslutte
 	// delete intrsone_temp;
 }
 
-
+									   // Constructor som leser fra fil
 Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 	int ant_int_sone;
 	int sone_nr;
 	char* buffer;
 	buffer = new char[STRLEN+1];
-	intrsone = new List(Sorted);
+	intrsone = new List(Sorted);	   // Oppretter ny liste (sortert)
 
-	cout << "\nleser en kunde fra fil";
+	cout << "\nleser en kunde fra fil"; // Henter data fra filen:
 	inn >> telefon;
 	inn.ignore();
 
@@ -99,12 +100,13 @@ Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 		cout << "\nLeser inn int_sone:" << j;
 		// delete intrsone_tmp
 	}
-	cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\nGate:"<<gate
-		<<"\tAdresse: " << adresse << "\nMail:" << mail << "\tAnt_soner: " << ant_int_sone;
+	cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " 
+		 << navn << "\nGate:"<<gate <<"\tAdresse: " << adresse << "\nMail:" 
+		 << mail << "\tAnt_soner: " << ant_int_sone;
 }
 
 
-Kunde::~Kunde() {
+Kunde::~Kunde() {					   // Destructor
 	delete []navn;
 	delete []gate;
 	delete []adresse;
@@ -112,16 +114,17 @@ Kunde::~Kunde() {
 	delete intrsone;
 }
 
-void Kunde::display() {
+void Kunde::display() {				   // Displayer Kunde
 	cout << "Viser en kundepost:";
-		cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " << navn << "\nGate:"<<gate
-		<<"\tAdresse: " << adresse << "\nMail:" << mail ;
+		cout << "\nNr: " << number << "\tTlf: " <<  telefon << "\tNavn: " 
+			 << navn << "\nGate:"<< gate <<"\tAdresse: " 
+			 << adresse << "\nMail:" << mail ;
 		cout << "\nAntall interesser:" << intrsone->no_of_elements();
 		intrsone->display_list();
 
 }
 
-void Kunde::finn_interesser() {
+void Kunde::finn_interesser() {        // Finner eventuelle interessesoner:
 	cout << "\n\nNaa begyner vi aa lette etter det du er intresert i!";
 
 	IntrSone* intresert_temp;
@@ -140,14 +143,16 @@ void Kunde::finn_interesser() {
 		if (sone_temp) {
 			cout << '\t' << '\'' << "aapner sonen" << '\'';
 			eindoms_liste = sone_temp -> return_eindom_list();
-			cout << '\n' << eindoms_liste -> no_of_elements() << " eindomer vi skal se paa...";
+			cout << '\n' << eindoms_liste -> no_of_elements() 
+				 << " eindomer vi skal se paa...";
 
 			for (int j = 1; j <= eindoms_liste -> no_of_elements(); j++) {
 				til_samenlign = (Eiendom*)eindoms_liste -> remove_no(j);
 
 				if ((intresert_temp -> samlign(til_samenlign)) == 2) {
 					
-					cout << "\n\n***skal skrive til: " << til_samenlign -> return_opdrag_nr() << "***";
+					cout << "\n\n***skal skrive til: " 
+						 << til_samenlign -> return_opdrag_nr() << "***";
 					oppdrag_nr = til_samenlign -> return_opdrag_nr();
 					skriv_til_e_dta(oppdrag_nr);
 
@@ -201,19 +206,21 @@ void Kunde::finn_ukentlig_intersser() {
 		if (sone_temp) {
 			cout << '\t' << '\'' << "aapner sonen" << '\'';
 			eindoms_liste = sone_temp -> return_eindom_list();
-			cout << '\n' << eindoms_liste -> no_of_elements() << " eindomer vi skal se paa...";
+			cout << '\n' << eindoms_liste -> no_of_elements() 
+				 << " eindomer vi skal se paa...";
 
 			for (int j = 1; j <= eindoms_liste -> no_of_elements(); j++) {
 				til_samenlign = (Eiendom*)eindoms_liste -> remove_no(j);
 
 				if ((intresert_temp -> samlign(til_samenlign)) == 1) {
 					
-					cout << "\n\n***skal lege til  oppdrag: " << til_samenlign -> return_opdrag_nr() << "***";
+					cout << "\n\n***skal lege til  oppdrag: " 
+						 << til_samenlign -> return_opdrag_nr() << "***";
 		
 
-					ut_data << "\n**************************************************\n";
+					ut_data << "\n*****************************************\n";
 					til_samenlign -> skrivTilFil(ut_data);
-					ut_data << "**************************************************";
+					ut_data << "*********************************************";
 
 				}
 
@@ -236,18 +243,18 @@ void Kunde::finn_ukentlig_intersser() {
 }
 
 
-void Kunde::skrivTilFil() {
+void Kunde::skrivTilFil() {				// Skriver kunden til fil
 	int i, antint = intrsone->no_of_elements();
 	IntrSone* is;
 	char* filnavn;
 
-	filnavn = new char[NVNLEN / 2];
+	filnavn = new char[NVNLEN / 2];	   // Lager filnavnet:
 	strcpy(filnavn, "K0000000.DT2");
 
 	lag_navn(filnavn, number,1, 4);
 
 	ofstream utfil(filnavn);
-
+									   // Skriver data ut på filen
 	utfil << telefon << '\n';
 	utfil << navn << '\n';
 	utfil << gate << '\n';
@@ -257,10 +264,10 @@ void Kunde::skrivTilFil() {
 
 	cout << "\n\nSKRIVER KUNDE:" << number << " TIL FIL.";
 
-	for (i = 1; i <= antint; i++) {
+	for (i = 1; i <= antint; i++) {    // Går gjennom interessesonene
 		is = (IntrSone*)intrsone->remove_no(i);
-		is->skrivTilFil(utfil);
-		intrsone->add(is);
+		is->skrivTilFil(utfil);		   // Ber hver enkelt skrive seg til fil
+		intrsone->add(is);	           // Adder tilbake igjen
 	}
 }
 
@@ -291,7 +298,7 @@ void Kunde::skriv_til_e_dta(int opp_nr) {
 
 	fstream ut_data(filnavn, ios::app);
 
-	ut_data << "**********\n" << navn << '\n' << gate << '\n' << adresse << '\n';
+	ut_data << "********\n" << navn << '\n' << gate << '\n' << adresse << '\n';
 
 	delete []filnavn;
 }
@@ -314,21 +321,25 @@ void Kunde::er_intresert_eindom(Eiendom* eiendomen, int sone_nr) {
 	// delete temp_intrsone;
 }
 
-void Kunde::endreIntrsone() {
+void Kunde::endreIntrsone() {	// Endrer aktuell interessesone
+								// Funksjonen fjerner interessen for så å legge
+							    // den inn på nytt, slik at bruker lett kan
+								// endre alt i en gitt interessesone.
 	IntrSone* isptr;
 	int sone;
 
 	cout << "\nDu er interessert i:\n";
-	intrsone->display_list();
+	intrsone->display_list();		   // Skriver ut lista
 
-	sone = les("\nHvilke(n) sone(r) vil du endre dine interesser i? (0 for å avslutte)", 0, 100);
+	sone = les("\nHvilke(n) sone(r) vil du endre "
+			   "dine interesser i? (0 for å avslutte)", 0, 100);
 
-	while (sone != 0) {
-		if (intrsone->in_list(sone)) {
-			isptr = (IntrSone*)intrsone->destroy(sone);
-			intrsone->add(new IntrSone(sone));
+	while (sone != 0) {				   // Sålenge valget ikke er 0
+		if (intrsone->in_list(sone)) { // Hvis sonen finnes
+			isptr = (IntrSone*)intrsone->destroy(sone); // Fjerner
+			intrsone->add(new IntrSone(sone)); // Og legger inn en ny.
 		}
-		else
+		else						   // Sonen finnes ikke
 			sone = les("\nHvilke(n) sone(r) vil du "
 			"endre dine interesser i? (0 for å avslutte)", 0, 100);
 

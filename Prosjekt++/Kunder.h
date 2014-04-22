@@ -8,12 +8,12 @@
 #include "Eiendom.h"
 
 
-class Kunder {
+class Kunder {						   // Private data:
 	private:
 		int forste, siste;
 		List* kunde;
 
-	public:
+	public:							   // Medlemsfunksjoner:
 		Kunder();
 		~Kunder();
 		void add_kunde();

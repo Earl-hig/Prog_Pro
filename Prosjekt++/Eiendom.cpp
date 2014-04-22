@@ -11,7 +11,7 @@ using namespace std;
 Eiendom::Eiendom() {
 
 }
-
+									   // Constructor som leser fra bruker:
 Eiendom::Eiendom(int type, int nr) : Num_element(nr) {
 	char buffer[NVNLEN];
 	char besk[STRLEN];
@@ -46,7 +46,7 @@ Eiendom::Eiendom(int type, int nr) : Num_element(nr) {
 
 
 }
-
+									   // Constructor som leser fra fil:
 Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	//cout << "\nStarter med eiendoms biten....";
 	bolig_type = (eiendomstype)type;
@@ -123,6 +123,6 @@ void Eiendom::skrivTilFil(ofstream & ut) {
 
 }
 
-bool Eiendom::harOppdnr(int nr){
+bool Eiendom::harOppdnr(int nr){	   // Returnerer oppragsnummeret
 	return (nr == number);
 }

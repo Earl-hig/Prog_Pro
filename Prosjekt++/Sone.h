@@ -8,12 +8,12 @@
 #include "funk.h"
 using namespace std;
 
-class Sone {
+class Sone {						   // Private data:
 	private:
 		char* beskrivelse;
 		List* eiendom;
 
-	public:
+	public:							   // Medlemsfunksjoner:
 		Sone();
 		Sone(ifstream & inn);
 		~Sone();

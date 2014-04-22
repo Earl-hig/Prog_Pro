@@ -10,7 +10,7 @@ using namespace std;
 #include "Sone.h"
 #include "extern.h"
 
-Soner::Soner() {
+Soner::Soner() {					// Parameterløs constructor
 	cout << "\nHei jeg er soner";
 
 	char * sonexx;
@@ -19,7 +19,7 @@ Soner::Soner() {
 
 	cout << "\nLeser fra " << siste_dta;
 	ifstream inn_siste("SISTE.DTA");
-	inn_siste >> sisteOppdrag;
+	inn_siste >> sisteOppdrag;		// Leser siste oppdrag fra fil
 
 	for (int i = 1; i < MAXSONE; i ++) {
 		
@@ -58,22 +58,22 @@ Sone* Soner::return_sone_nr(int nr) {
 	return return_ptr;
 }
 
-void Soner::skrivTilFil() {
+void Soner::skrivTilFil() {     // Skriver Soner til fil
 	char* filnavn;
 
 	filnavn = new char[NVNLEN / 2];
 	strcpy(filnavn, "SONE000.DTA");
 
-	ofstream utfil1("SISTE.DTA");
+	ofstream utfil1("SISTE.DTA"); // Åpner SISTE.DTA
 
-	utfil1 << sisteOppdrag << '\n';
+	utfil1 << sisteOppdrag << '\n'; // Skriver siste oppdrag til fila
 
-	for (int i = 1; i <= MAXSONE; i++) {
-		if (sonene[i] != 0) {
-			lag_navn(filnavn, i,1,4);
-			ofstream utfil2(filnavn);
+	for (int i = 1; i <= MAXSONE; i++) { // Går gjennom sonene
+		if (sonene[i] != 0) {			 // Hvis sonen er lagt inn
+			lag_navn(filnavn, i,1,4);    // Lager filnavn
+			ofstream utfil2(filnavn);	 // Oppretter fil
 			
-			sonene[i]->skrivTilFil(utfil2);
+			sonene[i]->skrivTilFil(utfil2); // Skriver hver enkelt sone til fil
 		}
 		else cout << "\nIngen soner registrert!";
 	}
@@ -101,14 +101,14 @@ void Soner::skrivTilEnFil(int i) {
 
 
 
-bool Soner::finnesSone(int nr) 
+bool Soner::finnesSone(int nr) // Returnerer sonens nummer hvis den finnes:
       {return sonene[nr];}
 
 
-void Soner::nyEiendom(int nr) {
-	sisteOppdrag++;
-	sonene[nr]->nyEiendom(sisteOppdrag);
-	finn_intereser(sisteOppdrag, nr);
+void Soner::nyEiendom(int nr) { // Legger inn ny eiendom
+	sisteOppdrag++;				// Teller opp siste oppdrag med 1.
+	sonene[nr]->nyEiendom(sisteOppdrag); // Kaller aktuell sone sin ny eiendom
+	finn_intereser(sisteOppdrag, nr); // Finner eventuelle interesser
 }
 
 void Soner::finn_intereser(int opp_nr, int sone_nr) {
@@ -121,13 +121,13 @@ void Soner::finn_intereser(int opp_nr, int sone_nr) {
 	// delete temp_eindom;
 }
 
-void Soner::nySone(int nr) {
-	sonene[nr] = new Sone();
-	sonene[nr]->nySone();
+void Soner::nySone(int nr) {  // Lager ny Sone
+	sonene[nr] = new Sone();  // Setter sone-pekeren til å peke på en ny sone
+	sonene[nr]->nySone();    // Leser data
 }
 
 
-int Soner::display(char k)
+int Soner::display(char k)	// Displayer Soner
 		{
 			int tmpint;
 			tmpint=les("Velg sone:",1,MAXSONE-1);

@@ -44,7 +44,7 @@ void les (char txt[],char * *ptr , const int LEN) {
   delete [] buffer;
 }
 
-void skrivMeny() {
+void skrivMeny() {					   // Oversikt over gjeldende menyvalg:
 
 	cout << "\n\n\t\tMENYVALG:";
 	cout << "\n\n\tFoelgende kommandoer er tilgjengelig:";
@@ -88,7 +88,7 @@ int postadresse2int(char* chrpkr)
 
 
 
-void skrivTilFil() {
+void skrivTilFil() {				   // Skriver til fil:
 	sonebase.skrivTilFil();
 	kundebase.skrivTilFil();
 }

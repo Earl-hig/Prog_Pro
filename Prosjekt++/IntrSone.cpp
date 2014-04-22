@@ -13,8 +13,9 @@ using namespace std;
 IntrSone::IntrSone() {
 
 }
-
-IntrSone::IntrSone(int sone, int max, int min, int ant, int typ, int valg, int onsk) :Num_element(sone) {
+									   // Constructor 1 som leser fra bruker
+IntrSone::IntrSone(int sone, int max, int min, 
+	int ant, int typ, int valg, int onsk) :Num_element(sone) {
 	cout << "\n construktor type alle variabler kjent";
 	maxpris = max;
 	minareal = min;
@@ -23,7 +24,7 @@ IntrSone::IntrSone(int sone, int max, int min, int ant, int typ, int valg, int o
 	salg_onske = (salgstype)onsk;
 	sending_valg = (tilsending)valg;
 }
-
+								       // Constructor som leser fra fil
 IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 
 	int enum_temp;
@@ -42,15 +43,17 @@ IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
 	type = (eiendomstype)enum_temp;
 
 
-	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " << minareal << "\tSoverom: " << antSov;
-	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " << salg_onske << "\tType bolig:" << type;
+	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " 
+		 << minareal << "\tSoverom: " << antSov;
+	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " 
+		 << salg_onske << "\tType bolig:" << type;
 
 	
 }
 
-IntrSone::IntrSone(int sone) {
-	int max_pris, min_ar, ant, typ, valg, onsk;
-	
+IntrSone::IntrSone(int sone) {		   // Constructor 2 som leser fra bruker
+	int max_pris, min_ar, ant, typ, valg, onsk;	// Div variable
+									   // Leser inn data fra bruker:
 	max_pris = les("\nskriv inn max pris", 1000000, 10000000);
 	min_ar = les("\nSkriv inn min areal", 50, 200);
 	ant = les("\nSkriv in antall soverom", 1, 10);
@@ -64,9 +67,11 @@ IntrSone::~IntrSone() {
 
 }
 
-void IntrSone::display() {
-	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " << minareal << "\tSoverom: " << antSov;
-	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " << salg_onske << "\tType bolig:" << type;
+void IntrSone::display() {			   // Displayer interessesone
+	cout << "\nSone: " << number << "\tPris: " << maxpris << "\tAreal: " 
+		 << minareal << "\tSoverom: " << antSov;
+	cout << "\nSending valg: " << sending_valg << "\tSalgs oenske: " 
+		 << salg_onske << "\tType bolig:" << type;
 }
 
 // 0 = ingen interesse, 1 = ukentlig innteresse, 2 = salgsopgave
@@ -117,7 +122,9 @@ int IntrSone::samlign(Element* boligen) {
 			if (minareal < (bolig_temp -> return_boareal())) {
 				cout << "\nAreal er grei";
 			
-			if (((bolig_temp -> return_salsg_type()) == Begge) || (salg_onske == Begge) || ((bolig_temp -> return_salsg_type()) == salg_onske)) {
+			if (((bolig_temp -> return_salsg_type()) == Begge) || 
+				(salg_onske == Begge) || 
+				((bolig_temp -> return_salsg_type()) == salg_onske)) {
 				cout << "\nSalgsonske er grei";
 				ret_val = true_ret;
 			}
@@ -144,7 +151,7 @@ int IntrSone::return_nr() {
 	return number;
 }
 
-void IntrSone::skrivTilFil(ofstream & ut){
+void IntrSone::skrivTilFil(ofstream & ut){	// Skriver interessesone til fil
 	ut << number << "  " << maxpris << "  ";
 	ut << minareal << "  " << antSov << '\n';
 	ut << sending_valg << '\n';

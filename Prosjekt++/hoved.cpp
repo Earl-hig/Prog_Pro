@@ -7,7 +7,7 @@ using namespace std;
 #include "Soner.h"
 #include "Kunder.h"
 
-Kunder kundebase;
+Kunder kundebase;					   // "Containerobjekter"
 Soner sonebase;
 
 
@@ -16,13 +16,13 @@ int main() {
 
 
 
-	char kommando;
+	char kommando;					   
 
-	skrivMeny();
+	skrivMeny();					   // Menyvalg
 
-	kommando = les();
+	kommando = les();				   // Leser brukerens valg
 
-	while (kommando != 'Q') {
+	while (kommando != 'Q') {		   // Avslutter med 'Q'
 		switch (kommando) {
 		case 'E':   sonebase.kommando_e(kommando);
 			break;
@@ -39,7 +39,7 @@ int main() {
 		kommando = les();
 	}
 
-	skrivTilFil();
+	skrivTilFil();					   // Skriver til fil
 
 	return 0;
 
