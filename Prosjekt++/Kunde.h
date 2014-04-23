@@ -13,9 +13,13 @@ using namespace std;
 
 class Kunde : public Num_element {		// Private data:
 	private:
-		int telefon;
-		char* navn, * gate,* adresse, * mail;
-		List* intrsone;
+		// num_ element -> number	// kunde nr
+		int telefon;				// telefon nr
+		char* navn;					// navn på kunden
+		char* gate;					// gate adr
+		char* adresse;				// post adr
+		char* mail;					// email adr
+		List* intrsone;				// liste med interesser
 	
 	public:							   // Medlemsfunksjoner:
 		Kunde();					   // Constructor

@@ -13,11 +13,13 @@ Eiendom::Eiendom() {
 }
 									   // Constructor som leser fra bruker:
 Eiendom::Eiendom(int type, int nr) : Num_element(nr) {
-	char buffer[NVNLEN];
+	char buffer[NVNLEN];	// hjelpe variabler
 	char besk[STRLEN];
 
-	bolig_type = (eiendomstype)type;
+	bolig_type = (eiendomstype)type;	// setter bolig typen
 	
+	// lesser inn resten av variablene fra brukeren
+
 	les("\nGateadresse", buffer, NVNLEN);
 	gateadr = new char[strlen(buffer) + 1];
 	strcpy(gateadr, buffer);
@@ -43,18 +45,22 @@ Eiendom::Eiendom(int type, int nr) : Num_element(nr) {
 	les("\nBeskrivelse av eiendommen", besk, STRLEN);
 	beskrivelse = new char[strlen(besk) + 1];
 	strcpy(beskrivelse, besk);
-
-
 }
+
 									   // Constructor som leser fra fil:
+									   // i = oppdrag nr, type = bolig_type
 Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	//cout << "\nStarter med eiendoms biten....";
-	bolig_type = (eiendomstype)type;
-	char* buffer;
+	bolig_type = (eiendomstype)type;	// setter bolig typen
+	char* buffer;						// buffer
 	buffer = new char[STRLEN+1];
+
+	// leser inn inter
 
 	inn >> datoInn >> bruksnr >> saksb >> pris >> tomta;
 	inn.ignore();
+
+	// lesser inn char pekere med hjelp av buffer
 
 	inn.getline(buffer, STRLEN);
 	gateadr = new char [strlen(buffer)+1];
@@ -77,11 +83,8 @@ Eiendom::Eiendom(ifstream & inn, int type, int i) :Num_element(i) {
 	strcpy(beskrivelse, buffer);
 
 	display();
-	delete []buffer;
-	return;
-	
-
-	
+	delete []buffer; // sletter bufferet
+	return;	
 }
 
 Eiendom::~Eiendom() {
@@ -93,7 +96,7 @@ void Eiendom::display() {//fordi denne kalles og overloades av samme funksjon
 	return;
 }
 
-void Eiendom::display_e() {
+void Eiendom::display_e() {		// skriver ut eindom info
 	cout << "\n*** EIENDOM  ***";
 	cout << "\nOpdragsnr: " << number << "\tBolig type: " << bolig_type << "\tDato_inn: " << datoInn
 		 << "\nBruksnr: " << bruksnr << "\t saksbehandler: " << saksb << "\tPris: " << pris
@@ -102,15 +105,21 @@ void Eiendom::display_e() {
 		 << "\nBeskrivelse: " << beskrivelse;
 }
 
+// retunerer pris
 int Eiendom::return_pris(){return pris;}
 
+// retunerer tamt areal
 int Eiendom::return_tomt_areal(){return tomta;}
 
+// retunerer oppdrags nr
 int Eiendom::return_opdrag_nr() {return number;}
 
+// retunerer bolig typen
 eiendomstype Eiendom::return_type(){return bolig_type;}
 
 void Eiendom::skrivTilFil(ofstream & ut) {
+
+	// Skriver all data til ut
 
 	ut << bolig_type << '\n';
 	ut << number << "  " << datoInn << "  " << bruksnr << "  " << saksb;
@@ -120,7 +129,6 @@ void Eiendom::skrivTilFil(ofstream & ut) {
 	ut << eier << '\n';
 	ut << kommune << '\n';
 	ut << beskrivelse << '\n';
-
 }
 
 bool Eiendom::harOppdnr(int nr){	   // Returnerer oppragsnummeret

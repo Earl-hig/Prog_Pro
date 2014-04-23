@@ -85,15 +85,15 @@ Kunde::Kunde(ifstream & inn, int i) :Num_element(i) {
 	mail = new char [strlen(buffer) + 1];
 	strcpy (mail, buffer);
 
-	inn >> ant_int_sone;
+	inn >> ant_int_sone; // antall inttSoner
 
-	for (int j = 1; j <= ant_int_sone; j++) {
+	for (int j = 1; j <= ant_int_sone; j++) { // for antall soner intresert i
 
 		IntrSone * intrsone_tmp;
 
-		inn >> sone_nr;
+		inn >> sone_nr; // lese sone nr
 
-		intrsone_tmp = new IntrSone(inn, sone_nr);
+		intrsone_tmp = new IntrSone(inn, sone_nr); // lager ny interesse sone
 
 		intrsone -> add(intrsone_tmp);
 
@@ -133,28 +133,32 @@ void Kunde::finn_interesser() {        // Finner eventuelle interessesoner:
 	Eiendom* til_samenlign;
 	int oppdrag_nr;
 
+	// for alle interesse soner
 	for (int i = 1; i <= intrsone -> no_of_elements(); i++) {
 		intresert_temp = (IntrSone*)intrsone -> remove_no(i);
 
 		cout << "\nSone nr: " << intresert_temp -> return_nr();
 
+		// Henter sone med lik nr som interesen
 		sone_temp = sonebase.return_sone_nr(intresert_temp -> return_nr());
 
-		if (sone_temp) {
+		if (sone_temp) { // hviss sonen finnes
 			cout << '\t' << '\'' << "aapner sonen" << '\'';
 			eindoms_liste = sone_temp -> return_eindom_list();
 			cout << '\n' << eindoms_liste -> no_of_elements() 
 				 << " eindomer vi skal se paa...";
 
+			// for alle eindomene i sonen
 			for (int j = 1; j <= eindoms_liste -> no_of_elements(); j++) {
 				til_samenlign = (Eiendom*)eindoms_liste -> remove_no(j);
 
+				// hvis interessen matchet
 				if ((intresert_temp -> samlign(til_samenlign)) == 2) {
 					
 					cout << "\n\n***skal skrive til: " 
 						 << til_samenlign -> return_opdrag_nr() << "***";
 					oppdrag_nr = til_samenlign -> return_opdrag_nr();
-					skriv_til_e_dta(oppdrag_nr);
+					skriv_til_e_dta(oppdrag_nr); // skriver til relevant fil
 
 				}
 
@@ -185,39 +189,42 @@ void Kunde::finn_ukentlig_intersser() {
 	List* eindoms_liste = new List(Sorted);
 	Eiendom* til_samenlign;
 
-	char* filnavn;
+	char* filnavn;					// lager fil navn
 	filnavn = new char[NVNLEN / 2];
 	strcpy(filnavn, "K0000000.INF");
 	lag_navn(filnavn, number,1, 4);
 	
-	ofstream ut_data(filnavn);
-
+	ofstream ut_data(filnavn);		// åpner filen
+									// skriver basis info
 	ut_data << navn << '\t' << telefon << '\t' << mail
 		<< '\n' << gate << '\t' << adresse
 		<< "\n\n**********Detter kunden intresert i**********\n\n";
-
+	// for alle interesse soner
 	for (int i = 1; i <= intrsone -> no_of_elements(); i++) {
 		intresert_temp = (IntrSone*)intrsone -> remove_no(i);
 
 		cout << "\nSone nr: " << intresert_temp -> return_nr();
 
+		// henter sone med lik nr som interesse sonen
 		sone_temp = sonebase.return_sone_nr(intresert_temp -> return_nr());
 
-		if (sone_temp) {
+		if (sone_temp) { // hvis sonen finnes
 			cout << '\t' << '\'' << "aapner sonen" << '\'';
 			eindoms_liste = sone_temp -> return_eindom_list();
 			cout << '\n' << eindoms_liste -> no_of_elements() 
 				 << " eindomer vi skal se paa...";
 
+			// for alle eindomene i sonen
 			for (int j = 1; j <= eindoms_liste -> no_of_elements(); j++) {
 				til_samenlign = (Eiendom*)eindoms_liste -> remove_no(j);
 
+				// hvis interesse
 				if ((intresert_temp -> samlign(til_samenlign)) == 1) {
 					
 					cout << "\n\n***skal lege til  oppdrag: " 
 						 << til_samenlign -> return_opdrag_nr() << "***";
 		
-
+					 // skriver til fil
 					ut_data << "\n*****************************************\n";
 					til_samenlign -> skrivTilFil(ut_data);
 					ut_data << "*********************************************";
@@ -292,12 +299,13 @@ void Kunde::slettFil() {
 void Kunde::skriv_til_e_dta(int opp_nr) {
 	char* filnavn;
 
-	filnavn = new char[NVNLEN / 2];
+	filnavn = new char[NVNLEN / 2];		// lager fil navnet
 	strcpy(filnavn, "E0000000.DTA");
 	lag_navn(filnavn, opp_nr, 1, 4);
 
-	fstream ut_data(filnavn, ios::app);
+	fstream ut_data(filnavn, ios::app);	// åpner filen
 
+	// skriver til fil
 	ut_data << "********\n" << navn << '\n' << gate << '\n' << adresse << '\n';
 
 	delete []filnavn;
@@ -305,10 +313,11 @@ void Kunde::skriv_til_e_dta(int opp_nr) {
 
 void Kunde::er_intresert_eindom(Eiendom* eiendomen, int sone_nr) {
 	IntrSone* temp_intrsone;
-	if (intrsone -> in_list(sone_nr)) {
+	if (intrsone -> in_list(sone_nr)) { // hvis sone er i interesse liten
 		cout << "\nDet finnes en mulighet";
 		temp_intrsone = (IntrSone*)intrsone -> remove(sone_nr);
 
+		// hvis intresert skriv til fil
 		if ( (temp_intrsone -> samlign(eiendomen) ) == 2) {
 			skriv_til_e_dta( eiendomen -> return_opdrag_nr() );
 		}

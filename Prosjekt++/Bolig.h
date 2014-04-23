@@ -11,8 +11,11 @@
 
 class Bolig : public Eiendom {			// Private data:
 	private:
-		int bygar, bruar, boareal, antSov;
-		salgstype salg_onske;
+		int bygar;				// byge år
+		int bruar;				// bruks areal
+		int boareal;			// bo areal
+		int antSov;				// antall sove rom
+		salgstype salg_onske;	// leie - salg - begge
 
 	public:								// Medlemsfunksjoner:
 		Bolig();

@@ -10,8 +10,9 @@
 
 class Kunder {						   // Private data:
 	private:
-		int forste, siste;
-		List* kunde;
+		int forste;		// forste nåverende kunde nr
+		int siste;		// sist brukt kunde nr
+		List* kunde;	// liste med kunder
 
 	public:							   // Medlemsfunksjoner:
 		Kunder();

@@ -11,9 +11,18 @@
 
 class Eiendom : public Num_element {	// Private data:
 	private:
-		int datoInn, bruksnr, saksb, pris, tomta;
-		char* gateadr, * postadr, * eier, * kommune, * beskrivelse;
-		eiendomstype bolig_type;
+		// num_ element -> number	// Oppdrags number
+		int datoInn;				// dato lagt til
+		int bruksnr;				// komunens bruks nr
+		int saksb;					// Nr på saksbehandler
+		int pris;					// pris for tomt / boligen
+		int tomta;					// tomt areal
+		char* gateadr;				// (gate + nr)
+		char* postadr;				// (nr + poststed)
+		char* eier;					// Hvem eier tomt / boligen
+		char* kommune;				// hvilken kommune den liger i
+		char* beskrivelse;			// beskrivelse av eindom
+		eiendomstype bolig_type;	// Hva slags bolig
 
 	public:								// Medlemsfunksjoner
 		Eiendom();

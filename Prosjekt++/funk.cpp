@@ -16,15 +16,16 @@ char les() {
 }
 
 int les(char t[], const int MIN, const int MAX) { // Leser tall:
-	int n;
+	int n;					// hjelpe variabeler
 	char tmpstr[STRLEN];
-	do {
+
+	do {					// loop for å lese in tall n
 		cout << '\t' << t << " (" << MIN << '-' << MAX << "): ";
 		cin >> tmpstr; 
 		n=postadresse2int(tmpstr);
 		cin.ignore();
 	} while (n < MIN || n > MAX);
-	return n;
+	return n;				// retunerer tallet
 }
 
 void les(char t[], char s[], const int LEN) { // Leser tekst:
@@ -34,14 +35,14 @@ void les(char t[], char s[], const int LEN) { // Leser tekst:
   } while (strlen(s) == 0);       //  Sjekker at tekstlengden er ulik 0.
 }
 
-void les (char txt[],char * *ptr , const int LEN) {
-  cout << txt;
-  char * buffer;
-  buffer = new char [LEN+1];
-  cin.getline(buffer, LEN);
-  *ptr = new char [strlen(buffer)+1];
-  strcpy(*ptr, buffer);
-  delete [] buffer;
+void les (char txt[],char * *ptr , const int LEN) { // leser tekst
+  cout << txt;							// Skriver ledetekst
+  char * buffer;						// hjelpe variabel
+  buffer = new char [LEN+1];			//
+  cin.getline(buffer, LEN);				// leser inn i hjelpe variabel 
+  *ptr = new char [strlen(buffer)+1];	// adresser minne
+  strcpy(*ptr, buffer);					// overfører til ptr
+  delete [] buffer;						// sleter hjelpe variabel
 }
 
 void skrivMeny() {					   // Oversikt over gjeldende menyvalg:
@@ -64,15 +65,15 @@ void skrivMeny() {					   // Oversikt over gjeldende menyvalg:
 }
 
 
-void ukentlig(){
+void ukentlig(){ // finner ukenlig intereser
 	cout << "\nDu er naa i komando u delen....";
-	kundebase.finn_ukentlig_interessee();
+	kundebase.finn_ukentlig_interessee();	// kaller kunder sin funksjon
 }
 
 
 
 
-int postadresse2int(char* chrpkr)
+int postadresse2int(char* chrpkr) // konvertere char til int
 {
 	int j=0;
 	int tmpint=0;
@@ -89,6 +90,6 @@ int postadresse2int(char* chrpkr)
 
 
 void skrivTilFil() {				   // Skriver til fil:
-	sonebase.skrivTilFil();
-	kundebase.skrivTilFil();
+	sonebase.skrivTilFil();		// sone skriv til fil
+	kundebase.skrivTilFil();	// kunde skriv til fil
 }

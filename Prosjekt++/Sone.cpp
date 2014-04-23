@@ -18,24 +18,24 @@ Sone::Sone() {
 
 Sone::Sone(ifstream & inn) {  // Constructor som leser fra fil:
 	cout << "\nLeser sone fra fil...";
-	eiendom = new List(Sorted);	// Oppretter ny liste (sortert)
-	int opdrags_nr, ant_eiend, type_eind;
-	char* buffer;
+	eiendom = new List(Sorted);			  // Oppretter ny liste (sortert)
+	int opdrags_nr, ant_eiend, type_eind; // Temp variabler
+	char* buffer;						  // buffer
 	buffer = new char[STRLEN+1];
 
-	inn.getline(buffer, STRLEN);
+	inn.getline(buffer, STRLEN);		  // leser inn beskrivelsen
 	beskrivelse = new char [strlen(buffer)+1];
 	strcpy(beskrivelse, buffer);
 
 	cout << "\nBeskrivelse: " << beskrivelse;
 
-	inn >> ant_eiend;
+	inn >> ant_eiend;					  // leser inn ant eindomer
 
-	for (int i = 1; i <= ant_eiend; i++) {
+	for (int i = 1; i <= ant_eiend; i++) { // foar ant eindomer
 		cout << "\nLeser inn eiendom nr: " << i;
-		inn >> type_eind >> opdrags_nr;
+		inn >> type_eind >> opdrags_nr;	  // lesser in type og oppdrags nr
 
-		if (type_eind) {
+		if (type_eind) { // bolig fra fil
 			cout << "\n\nbolig\n\n";
 			Bolig * bolig_temp;
 			bolig_temp = new Bolig(inn, type_eind, opdrags_nr);
@@ -44,7 +44,7 @@ Sone::Sone(ifstream & inn) {  // Constructor som leser fra fil:
 
 		}
 
-		else {
+		else { // tomt fra fil
 			cout << "\n\nTomt\n\n";
 			Eiendom * eindom_temp;
 			eindom_temp = new Eiendom(inn, type_eind, opdrags_nr);
@@ -66,12 +66,12 @@ void Sone::skrivTilFil(ofstream & ut) { // Skriver Sone til fil
 	Eiendom* enptr;
 
 
-	ut << beskrivelse << '\n';
-	ut << ant << '\n';
+	ut << beskrivelse << '\n';	// beskrivelse av sonen
+	ut << ant << '\n';			// Antall eindomer
 
-	for (i = 1; i <= ant; i++) {
+	for (i = 1; i <= ant; i++) {// for antall eindomer
 		enptr = (Eiendom*)eiendom->remove_no(i);
-		enptr->skrivTilFil(ut);
+		enptr->skrivTilFil(ut); // skriv til fil
 		eiendom->add(enptr);
 	
 	}
@@ -129,12 +129,12 @@ int Sone::display()				// Displayer Sone
 		}
 
 
-List* Sone::return_eindom_list() {
+List* Sone::return_eindom_list() { // retunerer eiendoms listen
 	return eiendom;
 }
 
 
-int Sone::display_some(int postnr)
+int Sone::display_some(int postnr) // display eindom
 		{int tmpint;
 
 		  
@@ -143,17 +143,18 @@ int Sone::display_some(int postnr)
 		    
 			tmpint=eiendom->no_of_elements();
 			//cout <<"Valgt sone har "<<tmpint<<" elementer";
-			if (postnr>9999)
+			if (postnr>9999) // oppdrags nr
 			//postnr er ikke et postnr men et ordrenr
 				{
 					eiendom->display_element(postnr);
 				}
-			else
+			else // postnr
 			//postnr er et korrekt postnr
-			for (int j=1;j<=tmpint;j++)
+			for (int j=1;j<=tmpint;j++) // for alle eindomene
 			{
 		
 			tmpeiendom=(Eiendom*)eiendom->remove_no(j);
+			// display hvis postnr == eindomens postnr
 			if (tmpeiendom->getpnr()==postnr) tmpeiendom->display();
 			eiendom->add(tmpeiendom);
 				
@@ -170,6 +171,8 @@ int Sone::slett(int oppdragsnr)
 			tmpint=eiendom->no_of_elements();
 			cout <<"\nValgt sone har "<<tmpint<<" elementer";
 			//tmpeiendom=NULL;
+
+			// sletter eiendomen
 			tmpeiendom=(Eiendom*)eiendom->remove(oppdragsnr);
 			//cout << int(tmpeiendom);
 			return int(tmpeiendom);

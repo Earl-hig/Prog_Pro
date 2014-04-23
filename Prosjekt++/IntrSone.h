@@ -11,10 +11,13 @@ using namespace std;
 
 class IntrSone : public Num_element {	// Private data:
 	private:
-		int maxpris, minareal, antSov;
-		eiendomstype type;
-		tilsending sending_valg;
-		salgstype salg_onske;
+		// num_ element -> number	// Sone nr
+		int maxpris;				// max ønsket pris
+		int minareal;				// Minimum ønsket areal
+		int antSov;					// minimum antall soverom
+		eiendomstype type;			// type bloig eller tomt
+		tilsending sending_valg;	// salgsoppgave / ukentlig
+		salgstype salg_onske;		// salg - leie - begge
 
 	public:								// Medlemsfunksjoner:
 		IntrSone();

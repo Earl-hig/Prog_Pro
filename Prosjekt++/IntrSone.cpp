@@ -13,7 +13,7 @@ using namespace std;
 IntrSone::IntrSone() {
 
 }
-									   // Constructor 1 som leser fra bruker
+									   // Constructor med alle variabler
 IntrSone::IntrSone(int sone, int max, int min, 
 	int ant, int typ, int valg, int onsk) :Num_element(sone) {
 	cout << "\n construktor type alle variabler kjent";
@@ -25,16 +25,16 @@ IntrSone::IntrSone(int sone, int max, int min,
 	sending_valg = (tilsending)valg;
 }
 								       // Constructor som leser fra fil
-IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) {
+IntrSone::IntrSone(ifstream & inn, int i) :Num_element(i) /*sone nr*/ {
 
 	int enum_temp;
 
-	cout << "\nInne i les fra fil construkt";
+	cout << "\nInne i les fra fil construkt";	// leser inn inter
 	inn >> maxpris >> minareal >> antSov;
 	
 
-	inn >> enum_temp;
-	sending_valg = (tilsending)enum_temp;
+	inn >> enum_temp;							// leser enumer som inter
+	sending_valg = (tilsending)enum_temp;		// kaster om til riktig type
 
 	inn >> enum_temp;
 	salg_onske = (salgstype)enum_temp;
@@ -75,28 +75,29 @@ void IntrSone::display() {			   // Displayer interessesone
 }
 
 // 0 = ingen interesse, 1 = ukentlig innteresse, 2 = salgsopgave
-int IntrSone::samlign(Element* boligen) {
+int IntrSone::samlign(Element* boligen) { // samenligner interesser - eiendom
 	cout << "\n\nSamenligner interesse med en eindom";
 	int true_ret;
 	int ret_val = 0;
 	Eiendom* eindom_temp;
 	Bolig* bolig_temp;
 
-	if (sending_valg == Ukentlig) {
+	if (sending_valg == Ukentlig) {				// retur verdig ved true = 1
 		true_ret = 1;
 	}
-	else if (sending_valg == Salgsoppgave) {
+	else if (sending_valg == Salgsoppgave) {	// retur verdig ved true = 2
 		true_ret = 2;
 	}
 
 	eindom_temp = (Eiendom*)boligen;
 
-
+	// hvis vi er intresert i denne eindoms typen
 	if (type == eindom_temp ->return_type()) {
 		cout << "\nVi er paa ret spor";
 
+		// hvis tomt
 		if ((eindom_temp ->return_type()) == Tomt) {
-			cout << "\nDette oppdraget er en tomt";
+			//cout << "\nDette oppdraget er en tomt";
 
 			if ((eindom_temp ->return_pris()) < maxpris) {
 				cout << "\nPrisen er grei";
@@ -109,8 +110,8 @@ int IntrSone::samlign(Element* boligen) {
 			}
 			}
 		}
-		else {
-//cout << "\ndu har med en bygg aa gjore";
+		else { // else bolig
+			//cout << "\ndu har med en bygg aa gjore";
 			bolig_temp = (Bolig*)eindom_temp;
 
 			if (antSov < (bolig_temp -> return_ant_sov())) {
@@ -147,7 +148,7 @@ int IntrSone::samlign(Element* boligen) {
 }
 
 
-int IntrSone::return_nr() {
+int IntrSone::return_nr() { // retunerer sone nr
 	return number;
 }
 

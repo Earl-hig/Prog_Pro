@@ -8,8 +8,8 @@
 
 class Soner {						   // Private data:
 	private:
-		int sisteOppdrag;				
-		Sone* sonene[MAXSONE];
+		int sisteOppdrag;			// Sist brukt oppdrags nr
+		Sone* sonene[MAXSONE];		// aray med soner
 
 	public:							   // Medlemsfunksjoner:
 		Soner();

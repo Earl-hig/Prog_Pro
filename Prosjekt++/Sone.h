@@ -10,8 +10,8 @@ using namespace std;
 
 class Sone {						   // Private data:
 	private:
-		char* beskrivelse;
-		List* eiendom;
+		char* beskrivelse;	// beskrivelse av sonen
+		List* eiendom;		// liste med tomt / boliger
 
 	public:							   // Medlemsfunksjoner:
 		Sone();

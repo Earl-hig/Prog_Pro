@@ -24,15 +24,15 @@ int main() {
 
 	while (kommando != 'Q') {		   // Avslutter med 'Q'
 		switch (kommando) {
-		case 'E':   sonebase.kommando_e(kommando);
+		case 'E':   sonebase.kommando_e(kommando);		// eindom
 			break;
-		case 'S':	sonebase.kommando(kommando);
+		case 'S':	sonebase.kommando(kommando);		// sone
 			break;
-		case 'K':	kundebase.kundeHandling(kommando);
+		case 'K':	kundebase.kundeHandling(kommando);	// kunde
 			break;
-		case 'U':	ukentlig();
+		case 'U':	ukentlig();							// ukentlig utskrift
 			break;
-		default:	skrivMeny();
+		default:	skrivMeny();						// skriver meny
 			break;
 		}
 

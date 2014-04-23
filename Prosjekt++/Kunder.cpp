@@ -25,24 +25,24 @@ Kunder::Kunder() {				// Parameterløs constructor:
 
 	cout << "\nHei jeg er kunder";
 
-	cout << "\nLeser fra " << siste_dta;
+	cout << "\nLeser fra " << siste_dta; // leser fra siste.dta
 	ifstream inn_siste("SISTE.DTA");
-	inn_siste >> forste >> forste >> siste;
+	inn_siste >> forste >> forste >> siste; // lesser inn inter
 
 	cout << "\nForste er: " << forste << "\nSiste er: " << siste;
 
-	for (int i = forste; i <= siste; i++) {
+	for (int i = forste; i <= siste; i++) { // for alle gyldige kunder
 		cout << "\nPrøver å lese kunde nr: " << i;
-		lag_navn(kxx, i ,1, 4);
+		lag_navn(kxx, i ,1, 4); // lager fil navn
 		cout << '\n' << kxx;
 
-		ifstream inn_data(kxx);
+		ifstream inn_data(kxx); // åpner fil
 
 		if (!inn_data) {
 			cout << "\nTrue";
 		}
 
-		else {
+		else { // leser ny kunde fra fil
 			
 			Kunde * kunde_temp;
 
@@ -60,11 +60,11 @@ Kunder::~Kunder() {
 
 }
 
-void Kunder::add_kunde () {
+void Kunder::add_kunde () { // legger til ny kunde
 	Kunde * kunde_temp;
-	kunde_temp = new Kunde(++siste);
-	kunde_temp -> finn_interesser();
-	kunde -> add(kunde_temp);	
+	kunde_temp = new Kunde(++siste); // lagger ny kunde
+	kunde_temp -> finn_interesser(); // finner interesser til kunden
+	kunde -> add(kunde_temp);		 // leger kunden til i listen
 	// delete kunde_temp;
 }
 
@@ -79,26 +79,26 @@ void Kunder::display_kunder () // Displayer Kunder
 	les("\nSkriv inn kundenr eller navn",tmpstr,STRLEN);
 	tmpint=postadresse2int(tmpstr);
 	//bruker funksjonen for å trekke nr ut av adresse
-	if (tmpint) 
+	if (tmpint) // hvis nr
 	{cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
-			ok=kunde->display_element(tmpint);
+			ok=kunde->display_element(tmpint); // display
 			
 	}
 
-	else 
+	else // else navn
 	{
 		cout <<"Du skrev et navn luring.";
 
 		tmpint=kunde->no_of_elements();
 		cout <<"\nElementer:"<<tmpint<<"\n";
-		for (int j=1;j<=tmpint;j++)
+		for (int j=1;j<=tmpint;j++) // for alle kundene
 		{
 			kunde_temp=(Kunde*)kunde->remove_no(j);
 			cout <<endl;
 			
-			if (!strcmp(tmpstr,kunde_temp->get_navn()))
+			if (!strcmp(tmpstr,kunde_temp->get_navn())) // hvis navn er lik
 			{
-			kunde_temp->display();
+			kunde_temp->display();						// display kunde
 			ok=true;
 			}
 			kunde->add(kunde_temp);
@@ -138,13 +138,13 @@ void Kunder::kundeHandling(char k)
 
 	
 		switch (kommando) {
-		case 'D': display_kunder();
+		case 'D': display_kunder();	// displayer en kunde
 			break;
-		case 'N': add_kunde();
+		case 'N': add_kunde();		// legger til ny kunde
 			break;
-		case 'S': slett_kunde();	
+		case 'S': slett_kunde();	// sletter kunden
 			break;
-		case 'E': endreKunde();
+		case 'E': endreKunde();		// endrer kunden
 			break;
 		default:
 			break;
@@ -160,12 +160,12 @@ void Kunder::slett_kunde ()
 	bool ok=false;
 	Kunde * kunde_temp;
 	cout << "\n*** Slett kunde ***";
-	tmpint=les("\nSkriv inn ett kundenr:",1,9999);
+	tmpint=les("\nSkriv inn ett kundenr:",1,9999); // leser inn kunde nr
 	
 	cout <<"\nSoeker paa kundernr."<<tmpint<<endl;
-			ok=kunde->display_element(tmpint);
+			ok=kunde->display_element(tmpint); // ser om kunden finnes
 			if (!ok) 
-			{cout << "Feil kundenr."; return;}
+			{cout << "Feil kundenr."; return;} // retunerer ut om false
 
 	cout << "\nSkriv kundenr en gang til for aa bekrefte sletting:";
 	tmp=les("\nSkriv inn ett kundenr:",1,9999);
@@ -175,8 +175,8 @@ void Kunder::slett_kunde ()
 		if (kunde->no_of_elements()<2) 
 		{cout <<"\nForbudt å slette siste kunde!";
 		return;}
-		kunde_temp=(Kunde*)kunde->remove(tmpint);
-		kunde_temp->slettFil();
+		kunde_temp=(Kunde*)kunde->remove(tmpint); // fjerner fra liste
+		kunde_temp->slettFil();					  // sletter filen
 		// her trengs filskriving
 
 		if (tmpint==forste)
@@ -199,9 +199,11 @@ void Kunder::finn_interesser_for_eindom(Eiendom* eiendomen, int sone_nr) {
 
 	Kunde* temp_kunde;
 
+	// for alle kunder
 	for (int i = 1; i <= kunde -> no_of_elements(); i++) {
 		temp_kunde = (Kunde*)kunde -> remove_no(i);
 
+		// finn interessen
 		temp_kunde -> er_intresert_eindom(eiendomen, sone_nr);
 
 		kunde -> add(temp_kunde);
@@ -214,11 +216,12 @@ void Kunder::finn_ukentlig_interessee() {
 		cout << "\nEtt hak dypere";
 		Kunde* temp_kunde;
 
+		// for alle kundene
 		for (int i = 1; i <= kunde -> no_of_elements(); i++) {
 			cout << "\nKunde " << i;
 			temp_kunde = (Kunde*)kunde -> remove_no(i);
 
-			temp_kunde -> finn_ukentlig_intersser();
+			temp_kunde -> finn_ukentlig_intersser(); // finn interessen
 
 			kunde -> add(temp_kunde);
 		}
@@ -237,10 +240,10 @@ void Kunder::endreKunde(){				// Funksjon som endrer kunde
 				valg = les();
 				
 				switch (valg) {
-					case 'K': delete kptr; 
+					case 'K': delete kptr;					// endrer kunden
 							  kunde->add(new Kunde(knr));
 							  break;
-					case 'I': kptr->endreIntrsone(); 
+					case 'I': kptr->endreIntrsone();		// endrer interesen
 							  kunde->add(kptr);
 							  break;
 					default:  cout << "\nUgyldig kommando!";

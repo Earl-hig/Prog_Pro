@@ -4,7 +4,7 @@
 #include "Kunder.h"
 #include "Soner.h"
 
-extern Kunder kundebase;
-extern Soner sonebase;
+extern Kunder kundebase;	// ligger i main
+extern Soner sonebase;		// ligger i main
 
 #endif
